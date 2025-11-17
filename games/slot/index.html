@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Slot Game MBI - Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../../style.css"> 
+
+    <style>
+        body { background-color: #000; color: white; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .slot-machine { border: 5px solid gold; padding: 20px; background-color: #333; border-radius: 10px; }
+        .reels { display: flex; justify-content: space-around; font-size: 4em; }
+        .reel { width: 100px; height: 120px; border: 2px solid #555; text-align: center; line-height: 120px; overflow: hidden; background-color: #111; }
+        #spin-button { margin-top: 20px; padding: 15px 30px; font-size: 1.2em; background-color: #ffcc00; border: none; border-radius: 8px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <header style="margin-bottom: 20px;">
+        <h2>🎰 Slot Game Simulasi MBI</h2>
+        <a href="../../index.html" style="color: #ffcc00; text-decoration: none;">&lt; Kembali ke Lobby</a>
+    </header>
+
+    <div class="slot-machine">
+        <div class="reels" id="reels">
+            <div class="reel" id="reel1">🍎</div>
+            <div class="reel" id="reel2">🍉</div>
+            <div class="reel" id="reel3">🍋</div>
+        </div>
+        <div id="message" style="margin-top: 15px; font-weight: bold;">Tekan SPIN!</div>
+        <button id="spin-button">SPIN!</button>
+    </div>
+
+    <script>
+        // Placeholder JavaScript untuk Game Slot (akan kita lengkapi nanti)
+        document.getElementById('spin-button').onclick = function() {
+            document.getElementById('message').textContent = 'Berputar...';
+            // Logic spin akan ditambahkan di sini
+            setTimeout(() => {
+                document.getElementById('message').textContent = 'Hasil: 🍎 🍉 🍋';
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
