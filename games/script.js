@@ -4,69 +4,69 @@
 const levelsData = [
     // Level 1: Soal Gambar 
     { 
-        answer: "MAUNGBODAS", 
-        image: "assets/img/level1.png", 
-        clue: "Ini adalah julukan atau nama lain dari harimau putih yang gagah.",
-        reward: 100 // Koin yang didapat
+        answer: "hayo siapa nama ku?", 
+        image: "assets/img/level01.jpg", 
+        clue: "alifirdaus.",
+        reward: 30 // Koin yang didapat
     },
     // Level 2
     { 
-        answer: "INDONESIAKU", 
-        image: "assets/img/level2.png", 
-        clue: "Tanah air tempat MBI berdiri.",
-        reward: 120
+        answer: "siapakah nama ku?", 
+        image: "assets/img/leve02.jpg", 
+        clue: "carsim.",
+        reward: 30
     },
     // Level 3
     { 
-        answer: "GAMECENTER", 
-        image: "assets/img/level3.png", 
-        clue: "Tempat berkumpulnya semua permainan ini.",
-        reward: 140
+        answer: "coba tebak nama ku?", 
+        image: "assets/img/leve03.jpg", 
+        clue: "bambang.",
+        reward: 70
     },
     // Level 4
     { 
-        answer: "TEBAKGAMBAR", 
-        image: "assets/img/level4.png", 
-        clue: "Nama permainan yang sedang Anda mainkan.",
-        reward: 160
+        answer: "nama ku siapa ya?", 
+        image: "assets/img/leve04.jpg", 
+        clue: "hariyana.",
+        reward: 70
     },
     // Level 5
     { 
-        answer: "KUMPULKOIN", 
-        image: "assets/img/level5.png", 
-        clue: "Tujuan utama Anda setelah memenangkan level.",
-        reward: 180
+        answer: "ayo tebak nama ku?", 
+        image: "assets/img/level05.jpg", 
+        clue: "andi.",
+        reward: 100
     },
     // Level 6
-    { answer: "JUARASATU", image: "assets/img/level6.png", clue: "Gelar yang diharapkan MBI.", reward: 200 },
+    { answer: "pasti kamu gak tau nama ku?", image: "assets/img/leve06.jpg", clue: "madsari", reward: 150 },
     // Level 7
-    { answer: "SAYASANGAR", image: "assets/img/level7.png", clue: "Perasaan saat menyelesaikan semua level.", reward: 220 },
+    { answer: "tebaklah nama ku?", image: "assets/img/leve07.jpg", clue: "awad.", reward: 70 },
     // Level 8
-    { answer: "HARIMAUPUTIH", image: "assets/img/level8.png", clue: "Maskot MBI.", reward: 240 },
+    { answer: "tebaklah nama ku?", image: "assets/img/leve08.jpg", clue: "wisnaver", reward: 50 },
     // Level 9
-    { answer: "GOKILABIS", image: "assets/img/level9.png", clue: "Kata slang untuk sangat keren.", reward: 260 },
+    { answer: "siapakah aku?", image: "assets/img/leve09.jpg", clue: "wiro", reward: 50 },
     // Level 10
-    { answer: "TANTANGAN", image: "assets/img/level10.png", clue: "Apa yang Anda hadapi di setiap level.", reward: 280 },
+    { answer: "aku siapa?", image: "assets/img/level10.png", clue: "m.wandi.", reward: 80 },
     // Level 11
-    { answer: "BELAJAR", image: "assets/img/level11.png", clue: "Apa yang Anda lakukan saat gagal.", reward: 300 },
+    { answer: "siapakah namaku?", image: "assets/img/level11.png", clue: "sonitilil", reward: 100 },
     // Level 12
-    { answer: "BERMAIN", image: "assets/img/level12.png", clue: "Aktivitas Anda saat ini.", reward: 320 },
+    { answer: "coba tebak namaku?", image: "assets/img/level12.png", clue: "amelia.", reward: 200 },
     // Level 13
-    { answer: "KEBERUNTUNGAN", image: "assets/img/level13.png", clue: "Kadang diperlukan dalam game.", reward: 340 },
+    { answer: "ayo tebak aku?", image: "assets/img/level13.png", clue: "bunda nuril", reward: 70 },
     // Level 14
-    { answer: "MANTAPJIWA", image: "assets/img/level14.png", clue: "Ungkapan rasa senang.", reward: 360 },
+    { answer: "tebak aku dong?", image: "assets/img/level14.png", clue: "misni", reward: 100 },
     // Level 15
-    { answer: "KREATIF", image: "assets/img/level15.png", clue: "Pikiran yang dibutuhkan untuk game ini.", reward: 380 },
+    { answer: "masih kenal kah dengan ku?", image: "assets/img/level15.png", clue: "risna", reward: 70 },
     // Level 16
-    { answer: "PEMENANG", image: "assets/img/level16.png", clue: "Siapa Anda jika berhasil.", reward: 400 },
+    { answer: "dari manakah asalku", image: "assets/img/level16.png", clue: "tasikmalaysa.", reward: 50 },
     // Level 17
-    { answer: "KERJAKERAS", image: "assets/img/level17.png", clue: "Kunci sukses di segala bidang.", reward: 420 },
+    { answer: "coba tebak aku dari mana?", image: "assets/img/level17.png", clue: "subang.", reward: 50 },
     // Level 18
-    { answer: "SEMANGAT45", image: "assets/img/level18.png", clue: "Slogan perjuangan Indonesia.", reward: 440 },
+    { answer: "tau kah asal ku?", image: "assets/img/level18.png", clue: "jawabarat.", reward: 100 },
     // Level 19
-    { answer: "LUARBIASA", image: "assets/img/level19.png", clue: "Kata pujian tingkat tinggi.", reward: 460 },
+    { answer: "aku istri siapa?", image: "assets/img/level19.png", clue: "andi.", reward: 100 },
     // Level 20
-    { answer: "GRANDPRIZE", image: "assets/img/level20.png", clue: "Hadiah besar di akhir permainan.", reward: 500 }
+    { answer: "dari manakah aku?", image: "assets/img/level20.png", clue: "kuningan.", reward: 100 }
 ];
 
 // ===============================================
