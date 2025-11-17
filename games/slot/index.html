@@ -99,6 +99,25 @@
         .win-antusias { color: #ff00ff; } 
         .win-meledak { color: #ff0000; } 
     </style>
+    /* CSS Mak Lampir */
+        #mak-lampir-animation {
+            position: fixed; /* Tampil di atas segalanya */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Posisikan tepat di tengah layar */
+            z-index: 1000; /* Pastikan di lapisan teratas */
+            animation: fadeInOut 3s ease-in-out; /* Animasi muncul dan hilang */
+            pointer-events: none; /* Agar tidak mengganggu klik */
+        }
+        .hidden {
+            display: none;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+            10% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            90% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+        }
 </head>
 <body>
     <header style="margin-bottom: 20px;">
