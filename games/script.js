@@ -5,7 +5,7 @@ const levelsData = [
     // Level 1: Soal Gambar 
     { 
         answer: "hayo siapa nama ku?", 
-        image: "assets/img/level01.jpg", 
+        image: "tebak gambar/assets/img/level01.jpg", 
         clue: "alifirdaus.",
         reward: 30 // Koin yang didapat
     },
