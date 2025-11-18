@@ -30,133 +30,152 @@ const levelsData = [
   // Level 2: "siapakah nama ku?",
   {
     answer: "carsim",
-    image: "/games/tebak gambar/assets/img/level02.jpg", 
-    clue: "carsim",
+    ‎Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+‎<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">"
+‎    clue: "carsim",
     reward: 30
   },
   // Level 3: "coba tebak nama ku?",
   {
     answer: "bambang",
-    image: "/games/tebak gambar/assets/img/level03.jpg", 
+    ‎Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+‎<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">"
     clue: "bambang",
     reward: 70
   },
   // Level 4: "nama ku siapa ya?",
   {
     answer: "heriyana",
-    image: "/games/tebak gambar/assets/img/level04.jpg", 
+    ‎Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+‎<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">"
     clue: "heriyana",
     reward: 70
   },
   // Level 5: "ayo tebak nama ku?",
   {
     answer: "andi",
-    image: "/games/tebak gambar/assets/img/level05.jpg", 
+    ‎Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+‎<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">"
     clue: "andi",
     reward: 70
   },
   // Level 6: "pasti kamu gak tau nama ku?",
   {
     answer: "madsari",
-    image: "/games/tebak gambar/assets/img/level06.jpg", 
+    ‎Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+‎<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">"
     clue: "madsari",
     reward: 100
   },
   // Level 7: "tebaklah nama ku?",
   {
     answer: "awad",
-    image: "/games/tebak gambar/assets/img/level07.jpg", 
+    ‎Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+‎<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">"
     clue: "awad",
     reward: 50
   },
   // Level 8: "tebaklah nama ku?",
   {
     answer: "wisnaver",
-    image: "/games/tebak gambar/assets/img/level08.jpg", 
+‎Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+‎<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">"
     clue: "wisnaver",
     reward: 30
   },
   // Level 9: "siapakah aku?",
   {
     answer: "wiro",
-    image: "/games/tebak gambar/assets/img/level09.jpg", 
+    ‎Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+‎<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">"
     clue: "wiro",
     reward: 30
   },
   // Level 10: "nama ku siapa?",
   {
     answer: "m.wandi",
-    image: "/games/tebak gambar/assets/img/level10.png", 
+    ‎Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+‎<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">"
     clue: "m.wandi",
     reward: 80
   },
   // Level 11:"siapakah namaku?",
   {
     answer: "sonitilil",
-    image: "/games/tebak gambar/assets/img/level11.png", 
+    ‎Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+‎<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">"
     clue: "sonitilil",
     reward: 80
   },
   // Level 12: "coba tebak namaku?",
   {
     answer: "amelia",
-    image: "/games/tebak gambar/assets/img/level12.png", 
+    ‎Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+‎<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">"
     clue: "amelia",
     reward: 150
   },
   // Level 13: "ayo tebak aku?",
   {
     answer: "bunda nuril",
-    image: "/games/tebak gambar/assets/img/level13.png", 
+    ‎Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+‎<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">"
     clue: "bunda nuril",
     reward: 70
   },
   // Level 14:"tebak aku dong?",
   {
     answer: "misni",
-    image: "/games/tebak gambar/assets/img/level14.png", 
+    ‎Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+‎<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">"
     clue: "misni",
     reward: 80
   },
   // Level 15: "masih kenal kah dengan ku?",
   {
     answer: "risna",
-    image: "/games/tebak gambar/assets/img/level15.png", 
+    ‎Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+‎<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">"
     clue: "risna",
     reward: 40
   },
   // Level 16:"dari manakah asal ku?",
   {
     answer: "Tasikmalaya",
-    image: "/games/tebak gambar/assets/img/level16.png", 
+    ‎Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+‎<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">"
     clue: "Tasikmalaya",
     reward: 30
   },
   // Level 17:"dari manakah asal ku?",
   {
     answer: "subang?",
-    image: "/games/tebak gambar/assets/img/level17.jpg", 
+    ‎Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+‎<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">"
     clue: "subang",
     reward: 30
   },
   // Level 18:"dari manakah asal ku?",
   {
     answer: "jawa barat",
-    image: "/games/tebak gambar/assets/img/level18.jpg", 
+    ‎Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+‎<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">"
     clue: "jawa barat",
     reward: 50
   },
   // Level 19:"berapakah usia ku?",
   {
     answer: "23 tahun",
-    image: "/games/tebak gambar/assets/img/level19.jpg", 
+    ‎Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+‎<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">"
     clue: "23 tahun",
     reward: 30
   },
   // Level 20:"asal manakah aku?",
   {
     answer: "kuningan",
-    image: "/games/tebak gambar/assets/img/level20.jpg", 
+    ‎Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+‎<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">"
     clue: "kuningan",
     reward: 50
   }
