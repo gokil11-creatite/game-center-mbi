@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "pertanyaan": "Bunga nasional Indonesia yang dijuluki 'Puspa Bangsa' adalah?",
+        "pilihan": ["Anggrek Bulan", "Bunga Bangkai", "Melati Putih", "Rafflesia Arnoldii"],
+        "jawaban_benar": "Melati Putih",
+        "kategori": "Sains",
+        "poin_reward": 10
+    },
+    {
+        "id": 2,
+        "pertanyaan": "Siapakah proklamator kemerdekaan Indonesia?",
+        "pilihan": ["Soeharto & Habibie", "Soekarno & Hatta", "Sutan Sjahrir", "Mohammad Yamin"],
+        "jawaban_benar": "Soekarno & Hatta",
+        "kategori": "Sejarah",
+        "poin_reward": 10
+    },
+    {
+        "id": 3,
+        "pertanyaan": "Alat musik tradisional Jawa Barat yang dimainkan dengan cara digoyangkan adalah?",
+        "pilihan": ["Gamelan", "Kecapi", "Rebana", "Angklung"],
+        "jawaban_benar": "Angklung",
+        "kategori": "Budaya",
+        "poin_reward": 10
+    },
+    {
+        "id": 4,
+        "pertanyaan": "Satuan mata uang negara Jepang adalah?",
+        "pilihan": ["Yuan", "Won", "Yen", "Ringgit"],
+        "jawaban_benar": "Yen",
+        "kategori": "Ekonomi",
+        "poin_reward": 10
+    },
+    {
+        "id": 5,
+        "pertanyaan": "Berapakah jumlah sisi pada sebuah segitiga?",
+        "pilihan": ["Empat", "Dua", "Tiga", "Lima"],
+        "jawaban_benar": "Tiga",
+        "kategori": "Matematika",
+        "poin_reward": 10
+    },
+    {
+        "id": 6,
+        "pertanyaan": "Planet terdekat kedua dari Matahari setelah Merkurius adalah?",
+        "pilihan": ["Bumi", "Mars", "Venus", "Jupiter"],
+        "jawaban_benar": "Venus",
+        "kategori": "Sains",
+        "poin_reward": 10
+    },
+    {
+        "id": 7,
+        "pertanyaan": "Siapa pencipta karakter kartun Mickey Mouse?",
+        "pilihan": ["Steven Spielberg", "Walt Disney", "Hayao Miyazaki", "Hanna-Barbera"],
+        "jawaban_benar": "Walt Disney",
+        "kategori": "Seni",
+        "poin_reward": 10
+    },
+    {
+        "id": 8,
+        "pertanyaan": "Cabang olahraga yang menggunakan bola kecil dan stik (tongkat pemukul) disebut?",
+        "pilihan": ["Basket", "Sepak Bola", "Golf", "Tenis"],
+        "jawaban_benar": "Golf",
+        "kategori": "Olahraga",
+        "poin_reward": 10
+    },
+    {
+        "id": 9,
+        "pertanyaan": "Negara yang memiliki populasi terbanyak di dunia saat ini adalah?",
+        "pilihan": ["Tiongkok", "Amerika Serikat", "India", "Indonesia"],
+        "jawaban_benar": "India",
+        "kategori": "Geografi",
+        "poin_reward": 10
+    },
+    {
+        "id": 10,
+        "pertanyaan": "Proses perubahan wujud dari gas menjadi cair disebut?",
+        "pilihan": ["Mencair", "Menyublim", "Menguap", "Kondensasi"],
+        "jawaban_benar": "Kondensasi",
+        "kategori": "Sains",
+        "poin_reward": 10
+    }
+]
