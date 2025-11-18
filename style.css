@@ -86,7 +86,7 @@ header {
 /* --- 5. DAFTAR GAME (MAIN SECTION) --- */
 .game-list-container {
     padding: 20px 0;
-    flex-grow: 1; /* Agar konten mengisi ruang sisa */
+    flex-grow: 1;
 }
 
 .section-title {
@@ -98,7 +98,6 @@ header {
 
 .game-list {
     display: grid;
-    /* Tampilkan 2 kolom di layar yang lebih lebar, 1 kolom di layar kecil */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
     gap: 20px;
 }
@@ -110,10 +109,14 @@ header {
     border-radius: 10px;
     padding: 15px;
     text-align: center;
-    text-decoration: none; /* Hilangkan garis bawah pada link */
+    text-decoration: none;
     color: #333;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+    min-height: 120px; /* Tinggi standar kartu */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .game-card:hover {
@@ -132,16 +135,51 @@ header {
     color: #666;
 }
 
-/* Untuk Card yang menggunakan background image (opsional) */
-.game-card[style] {
-    color: white; /* Ubah warna teks menjadi putih agar terlihat pada gambar */
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-    min-height: 150px;
+/* --- CUSTOM CARD STYLE: TEBAK MBI (MENGGUNAKAN IMAGE LAMA DARI TEBAK-GAMBAR) --- */
+.game-card.tebak-mbi {
+    min-height: 180px; /* Tinggikan kartu untuk latar belakang gambar */
+    color: white; 
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 0, 0, 0.9);
+    background-image: url('assets/images/placeholder-mbi-quiz.png'); /* Ganti dengan URL Gambar yang sesuai (Aset prajurit) */
+    background-size: cover;
+    background-position: center;
+    background-color: #555; 
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Taruh teks di bawah */
-    background-color: #555; /* Fallback warna jika gambar gagal dimuat */
+    justify-content: flex-end; /* Pusatkan teks di bawah */
 }
+
+/* Override warna teks untuk card dengan background image */
+.game-card.tebak-mbi .game-title {
+    color: #ffc107; /* Warna kuning agar kontras */
+    margin: 5px 0 0;
+    font-size: 1.4em;
+}
+
+.game-card.tebak-mbi p {
+    color: #f8f9fa;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+/* Reset style untuk Tebak Gambar yang kini kembali ke style standar */
+.game-card.tebak-gambar {
+    background-image: none !important;
+    background-color: #fff !important;
+    color: #333 !important;
+    text-shadow: none !important;
+    min-height: 120px; 
+    justify-content: center;
+}
+
+.game-card.tebak-gambar .game-title {
+    color: #007bff !important;
+}
+
+.game-card.tebak-gambar p {
+    color: #666 !important;
+}
+
 
 .mbi-game-icon {
     width: 40px;
