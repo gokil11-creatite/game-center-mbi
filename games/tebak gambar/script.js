@@ -22,7 +22,8 @@ const levelsData = [
   {
     answer: "alifirdaus",
     // KOREKSI PATH ABSOLUT: Menggunakan spasi dan dimulai dari root (/)
-    image: "/games/tebak gambar/assets/img/level01.jpg", 
+    Baris,Kode LAMA (Relatif),Kode BARU (Absolut)
+<img id=""question-image"" src=""assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">","<img id=""question-image"" src=""/games/tebak gambar/assets/img/level01.jpg"" alt=""Gambar Soal"" class=""question-img"">" 
     clue: "alifirdaus",
     reward: 30 // Koin yang didapat
   },
