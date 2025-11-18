@@ -194,7 +194,7 @@ function cekJawaban() {
   const isCorrect = userAnswer === levelData.answer.toLowerCase();
 
   if (isCorrect) {
-    alert(`Jawaban Benar! Anda mendapatkan ${levelData.reward} Koin!`);
+    alert(`Jawaban Anda Benar!  ${levelData.reward} Koin!`);
     
     // Beri hadiah
     userCoins += levelData.reward;
