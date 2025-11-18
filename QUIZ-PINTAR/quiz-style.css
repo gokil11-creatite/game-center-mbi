@@ -1,0 +1,138 @@
+/* --- 1. Reset dan Layout Dasar --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #e6f7ff; /* Latar belakang biru muda */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.quiz-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* --- 2. Header dan Skor --- */
+h1 {
+    color: #007bff;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+
+.score-display {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #28a745;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid #28a745;
+    border-radius: 8px;
+}
+
+/* --- 3. Area Pertanyaan --- */
+#question-text {
+    font-size: 1.4em;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default 1 kolom untuk mobile */
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Sesuaikan menjadi 2 kolom di layar yang lebih lebar (tablet/desktop) */
+@media (min-width: 500px) {
+    .options-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --- 4. Tombol Pilihan Jawaban --- */
+.option-button {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    text-align: left;
+    white-space: normal; /* Pastikan teks membungkus */
+}
+
+.option-button:hover:not(:disabled) {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+.option-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* --- 5. Status Jawaban (Feedback) --- */
+.correct {
+    background-color: #28a745; /* Hijau */
+    color: white;
+    border-color: #218838;
+}
+
+.wrong {
+    background-color: #dc3545; /* Merah */
+    color: white;
+    border-color: #c82333;
+}
+
+.feedback-text {
+    margin-top: 15px;
+    font-weight: 700;
+    font-size: 1.1em;
+    min-height: 25px; /* Memberi ruang agar tidak ada CLS */
+}
+
+/* --- 6. Tombol Aksi (Lanjut & Kembali) */
+.cta-button {
+    background-color: #007bff; /* Biru */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* --- 7. Layar Hasil Akhir --- */
+#result-screen h2 {
+    color: #28a745;
+}
+
+#final-score {
+    font-size: 2em;
+    font-weight: 900;
+    color: #007bff;
+}
+
+#result-screen button {
+    margin-top: 20px;
+}
