@@ -3,73 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Center MBI - Kumpulan Game Seru!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Game Center MBI</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <div id="logo-container">
+        <img src="assets/images/logo-mbi.png" alt="Logo MBI" class="mbi-logo">
+    </div>
+
+    <div class="user-stats">
+        <span class="stat-item">🏆 Poin: <span id="user-points">0</span></span>
+        <span class="stat-item">💰 Koin: <span id="user-coins">1000</span></span>
+    </div>
+
     <header>
-        <div id="logo-container">
-            <img src="assets/images/logo-mbi.png" alt="Logo MBI" class="mbi-logo">
-        </div>
-
-        <div class="user-stats">
-            <span class="stat-item">🏆 Poin: <span id="user-points">0</span></span>
-            <span class="stat-item">💰 Koin: <span id="user-coins">0</span></span>
-        </div>
-
-        <h1>MBI GAME CENTER</h1>
+        <h1 id="mbi-game-center">MBI GAME CENTER</h1>
         <p class="tagline">Koleksi Game Lokal Paling Seru!</p>
-        
-        <button class="cta-button" id="ad-button" onclick="tontonIklan()">Tonton Iklan (+50Koin)</button>
+        <button class="cta-button" id="ad-button" onclick="tontonIklan()">Tonton Iklan (+50 Koin)</button>
     </header>
 
     <main class="game-list-container">
         <h2 class="section-title">Pilih Game Anda</h2>
         
-        <div class="game-list">
+        <div class="div class="game-list">
             
             <a href="games/tebak-gambar/index.html" class="game-card"
-   style="background-image: url('assets/images/kami.png'); background-size: cover; background-position: center;">
-    
-    <div class="card-icon-container">
-        <img src="assets/images/iconmbi.png" alt="Ikon MBI" class="mbi-game-icon">
-    </div>
-    
-    <h3 class="game-title">Tebak Gambar MBI</h3>
-    <p>Mengenal MBI!</p>
-</a>
-            
+                style="background-image: url('assets/images/kami.png'); background-size: cover; background-position: center;">
+                <div class="card-icon-container">
+                    <img src="assets/images/iconmbi.png" alt="Ikon MBI" class="mbi-game-icon">
+                </div>
+                <h3 class="game-title">Tebak Gambar MBI</h3>
+                <p>Mengenal MBI!</p>
+            </a>
+
             <a href="games/candy-fruit/index.html" class="game-card">
-             <div class="card-icon">🍬</div>
+                <div class="card-icon-container">
+                    </div>
                 <h3 class="game-title">Candy Fruit</h3>
                 <p>Mencocokkan buah, seperti Candy Crush!</p>
             </a>
-            
+
             <a href="games/quis-miliarder/index.html" class="game-card">
-                <div class="card-icon">💵</div>
-                <h3 class="game-title">Quis Miliader</h3>
+                <div class="card-icon-container">
+                    </div>
+                <h3 class="game-title">Quis Miliarder</h3>
                 <p>Jawab pertanyaan, raih jutaan koin!</p>
             </a>
 
             <a href="games/tetris-2d/index.html" class="game-card">
-                <div class="card-icon">🧱</div>
+                <div class="card-icon-container">
+                    </div>
                 <h3 class="game-title">Tetris 2D</h3>
                 <p>Susun balok, tantang kecepatan!</p>
             </a>
 
             <a href="games/sikat-buah/index.html" class="game-card">
-                <div class="card-icon">🗡️</div>
+                <div class="card-icon-container">
+                    </div>
                 <h3 class="game-title">Sikat Buah</h3>
-                <p>Iris buah seperti Fruit Ninja!</p>
+                <p>Iiris buah seperti Fruit Ninja!</p>
             </a>
         </div>
-        
     </main>
 
     <footer>
         <button class="leaderboard-button" onclick="window.location.href='leaderboard.html'">Papan Peringkat</button>
-        <p>&copy; 2025 MBI Game Center | Didukung Iklan</p>
+        <p>&copy; 2025 MBI Game Center</p>
     </footer>
 
     <script src="app.js"></script>
