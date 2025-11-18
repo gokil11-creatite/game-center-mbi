@@ -43,7 +43,7 @@ function tontonIklan() {
     const reward = 50;
     addCoins(reward);
     
-    alert(`Terima kasih sudah menonton iklan! Anda mendapat ${reward} Koin!`);
+    alert(`Terima kasih sudah menonton iklan! Anda mendapat ${reward} 30 Koin!`);
 }
 
 // FUNGSI INTI (Dipanggil saat halaman dimuat)
