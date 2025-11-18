@@ -18,146 +18,146 @@ const clueText = document.getElementById('clue-text');
 // 1. DATA LEVEL SOAL (Level 1-20)
 // ===================================
 const levelsData = [
-  // Level 1: Soal Gambar
+  // Level 1: "hayo siapa nama ku?",
   {
-    answer: "hayo siapa nama ku?",
+    answer: "alifirdaus",
     // KOREKSI PATH ABSOLUT: Menggunakan spasi dan dimulai dari root (/)
     image: "/games/tebak gambar/assets/img/level01.jpg", 
     clue: "alifirdaus",
     reward: 30 // Koin yang didapat
   },
-  // Level 2
+  // Level 2: "siapakah nama ku?",
   {
-    answer: "siapakah nama ku2?",
+    answer: "carsim",
     image: "/games/tebak gambar/assets/img/level02.jpg", 
     clue: "carsim",
     reward: 30
   },
-  // Level 3
+  // Level 3: "coba tebak nama ku?",
   {
-    answer: "coba tebak nama ku?",
+    answer: "bambang",
     image: "/games/tebak gambar/assets/img/level03.jpg", 
     clue: "bambang",
     reward: 70
   },
-  // Level 4
+  // Level 4: "nama ku siapa ya?",
   {
-    answer: "nama ku siapa ya?",
+    answer: "heriyana",
     image: "/games/tebak gambar/assets/img/level04.jpg", 
-    clue: "hariyana",
+    clue: "heriyana",
     reward: 70
   },
-  // Level 5
+  // Level 5: "ayo tebak nama ku?",
   {
-    answer: "ayo tebak nama ku?",
+    answer: "andi",
     image: "/games/tebak gambar/assets/img/level05.jpg", 
     clue: "andi",
-    reward: 100
+    reward: 70
   },
-  // Level 6
+  // Level 6: "pasti kamu gak tau nama ku?",
   {
-    answer: "pasti kamu gak tau nama ku?",
+    answer: "madsari",
     image: "/games/tebak gambar/assets/img/level06.jpg", 
-    clue: "wisnu",
+    clue: "madsari",
     reward: 100
   },
-  // Level 7
+  // Level 7: "tebaklah nama ku?",
   {
-    answer: "tebaklah nama ku?",
+    answer: "awad",
     image: "/games/tebak gambar/assets/img/level07.jpg", 
-    clue: "awang",
-    reward: 150
+    clue: "awad",
+    reward: 50
   },
-  // Level 8
+  // Level 8: "tebaklah nama ku?",
   {
-    answer: "tebaklah nama ku?",
+    answer: "wisnaver",
     image: "/games/tebak gambar/assets/img/level08.jpg", 
-    clue: "wisnu",
-    reward: 150
+    clue: "wisnaver",
+    reward: 30
   },
-  // Level 9
+  // Level 9: "siapakah aku?",
   {
-    answer: "siapakah aku?",
+    answer: "wiro",
     image: "/games/tebak gambar/assets/img/level09.jpg", 
     clue: "wiro",
-    reward: 200
+    reward: 30
   },
-  // Level 10
+  // Level 10: "nama ku siapa?",
   {
-    answer: "siapaku siapa?",
+    answer: "m.wandi",
     image: "/games/tebak gambar/assets/img/level10.png", 
     clue: "m.wandi",
-    reward: 200
+    reward: 80
   },
-  // Level 11
+  // Level 11:"siapakah namaku?",
   {
-    answer: "siapakah namaku?",
+    answer: "sonitilil",
     image: "/games/tebak gambar/assets/img/level11.png", 
-    clue: "soni",
-    reward: 250
+    clue: "sonitilil",
+    reward: 80
   },
-  // Level 12
+  // Level 12: "coba tebak namaku?",
   {
-    answer: "coba tebak namaku?",
+    answer: "amelia",
     image: "/games/tebak gambar/assets/img/level12.png", 
-    clue: "asman",
-    reward: 250
+    clue: "amelia",
+    reward: 150
   },
-  // Level 13
+  // Level 13: "ayo tebak aku?",
   {
-    answer: "ayo tebak aku?",
+    answer: "bunda nuril",
     image: "/games/tebak gambar/assets/img/level13.png", 
-    clue: "bundas",
-    reward: 300
+    clue: "bunda nuril",
+    reward: 70
   },
-  // Level 14
+  // Level 14:"tebak aku dong?",
   {
-    answer: "tebak aku dong?",
+    answer: "misni",
     image: "/games/tebak gambar/assets/img/level14.png", 
-    clue: "misnan",
-    reward: 300
+    clue: "misni",
+    reward: 80
   },
-  // Level 15
+  // Level 15: "masih kenal kah dengan ku?",
   {
-    answer: "masih kenal kah dengan ku?",
+    answer: "risna",
     image: "/games/tebak gambar/assets/img/level15.png", 
-    clue: "dodo",
-    reward: 350
+    clue: "risna",
+    reward: 40
   },
-  // Level 16
+  // Level 16:"dari manakah asal ku?",
   {
-    answer: "tebak aku lagi?",
+    answer: "Tasikmalaya",
     image: "/games/tebak gambar/assets/img/level16.png", 
-    clue: "sutri",
-    reward: 350
+    clue: "Tasikmalaya",
+    reward: 30
   },
-  // Level 17
+  // Level 17:"dari manakah asal ku?",
   {
-    answer: "siapa ya aku?",
+    answer: "subang?",
     image: "/games/tebak gambar/assets/img/level17.jpg", 
-    clue: "supat",
-    reward: 400
+    clue: "subang",
+    reward: 30
   },
-  // Level 18
+  // Level 18:"dari manakah asal ku?",
   {
-    answer: "coba tebak siapa aku?",
+    answer: "jawa barat",
     image: "/games/tebak gambar/assets/img/level18.jpg", 
-    clue: "cinta",
-    reward: 400
+    clue: "jawa barat",
+    reward: 50
   },
-  // Level 19
+  // Level 19:"berapakah usia ku?",
   {
-    answer: "masih aku juga?",
+    answer: "23 tahun",
     image: "/games/tebak gambar/assets/img/level19.jpg", 
-    clue: "gibran",
-    reward: 450
+    clue: "23 tahun",
+    reward: 30
   },
-  // Level 20
+  // Level 20:"asal manakah aku?",
   {
-    answer: "ini terakhir lho?",
+    answer: "kuningan",
     image: "/games/tebak gambar/assets/img/level20.jpg", 
-    clue: "joko",
-    reward: 450
+    clue: "kuningan",
+    reward: 50
   }
 ];
 
