@@ -7,14 +7,14 @@
     
     <link rel="stylesheet" href="style.css"> 
     
-    <link rel="stylesheet" href="../../style.css"> 
+    <link rel="stylesheet" href="../style.css"> 
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <a href="../../index.html" class="back-button">⬅️ Kembali ke Lobby</a>
-        
+        <a href="../index.html" class="back-button">⬅️ Kembali ke Lobby</a> 
+
         <div class="game-stats">
             <span id="level-display">Level: 1</span>
             <span id="clue-cost">Bantuan: 50 Koin 💰</span>
@@ -24,29 +24,30 @@
     <main class="game-container">
         <h2 class="game-title">Tebak Gambar MBI</h2>
         
-        <div class="image-area">
-            <img id="question-image" src="assets/img/level01.jpg" alt="Gambar Soal" class="question-img">
-        </div>
-
-        <div class="input-area">
-            <input type="text" id="answer-input" placeholder="Masukkan Jawaban Anda">
-            <button id="check-button" class="cta-button">Cek Jawaban</button>
+        <div class="div class="game-area">
+            <div class="image-area">
+                <img id="question-image" src="assets/img/level01.jpg" alt="Gambar Soal" class="question-img">
+            </div>
+            
+            <div class="input-area">
+                <input type="text" id="answer-input" placeholder="Masukkan Jawaban Anda">
+                <button id="check-button" class="cta-button">Cek Jawaban/button>
+            </div>
         </div>
 
         <div class="help-area">
-            <button id="clue-button" class="leaderboard-button">Gunakan Bantuan (50 Koin)</button>
+            <button id="clue-button" class="cta-button">Gunakan Bantuan (50 Koin)</button>
+            <button id="leaderboard-button" class="cta-button" onclick="window.location.href='../leaderboard.html'">Papan Peringkat</button>
             <p id="clue-text" class="clue-message" style="display: none;"></p>
         </div>
-        
-        <p id="message" class="message"></p>
     </main>
-    
+
     <footer>
         <p>&copy; 2025 MBI Game Center</p>
     </footer>
+
+    <script src="../app.js"></script> 
     
-    <script src="../../app.js"></script> 
-    
-    <script src="script.js"></script> 
+    <script src="script.js"></script>
 </body>
 </html>
