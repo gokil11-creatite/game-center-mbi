@@ -43,8 +43,8 @@ const QUESTIONS = [
         id: 5,
         image: "level05.jpg",
         question: "siapakah aku?",
-        answer: ["madsari"],
-        hint: "papah uky/madsari.",
+        answer: ["andi"],
+        hint: "ayah nuril/andi.",
         points: 20,
         coinReward: 4
     }
