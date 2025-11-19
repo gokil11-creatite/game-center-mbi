@@ -25,7 +25,54 @@ body {
     display: flex;
     justify-content: center;
     padding: 20px;
+    overflow-y: auto; /* Memungkinkan scroll jika konten panjang */
 }
+
+/* --- OVERLAY START AUDIO --- */
+.audio-start-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.start-audio-button {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 0 0 #10528e;
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.start-audio-button:hover {
+    background-color: #3b91ff;
+}
+
+.start-audio-button:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 0 #10528e;
+}
+
+.audio-note {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* --- TINGGALKAN KODE CSS LAINNYA DI BAWAH INI SAMA SEPERTI SEBELUMNYA --- */
 
 .container {
     width: 100%;
@@ -69,6 +116,7 @@ body {
     text-decoration: none;
     font-weight: bold;
     margin-bottom: 15px;
+    transition: opacity 0.2s;
 }
 
 .ad-button {
@@ -79,6 +127,11 @@ body {
     border-radius: 5px;
     text-decoration: none;
     font-size: 14px;
+    transition: opacity 0.2s;
+}
+
+.leaderboard-button:hover, .ad-button:hover, .game-card:hover {
+    opacity: 0.9;
 }
 
 /* --- KONTEN UTAMA --- */
