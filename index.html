@@ -1,106 +1,130 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MBI Game Center - Koleksi Quiz Pintar</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MBI Game Center - Koleksi Quiz Pintar</title>
+
+  <!-- Ganti path CSS sesuai struktur: css/main.css -->
+  <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
-    
-    <!-- AUDIO START OVERLAY (Untuk mengatasi masalah Autoplay Browser) -->
-    <div id="audio-start-overlay" class="audio-start-overlay">
-        <button id="start-audio-button" class="start-audio-button">
-            Ketuk untuk Mulai Game
-        </button>
-        <p class="audio-note">Memuat musik latar dan efek suara.</p>
-    </div>
+  <!-- AUDIO START OVERLAY (mengatasi autoplay) -->
+  <div id="audio-start-overlay" class="audio-start-overlay">
+    <button id="start-audio-button" class="start-audio-button">
+      Ketuk untuk Mulai Game
+    </button>
+    <p class="audio-note">Ketuk untuk memuat musik latar & efek suara.</p>
+  </div>
 
-    <div class="container">
-        <!-- HEADER KIRI (Poin, Koin, Papan Peringkat, Iklan) -->
-        <aside class="left-panel">
-            <div class="score-item">
-                <label>Poin:</label>
-                <div class="score-value">0</div>
-            </div>
-            <div class="score-item">
-                <label>Koin:</label>
-                <div class="score-value">0</div>
-            </div>
-            <a href="#" class="leaderboard-button">Papan peringkat</a>
-            <a href="#" class="ad-button">Tonton iklan (+50 Koin)</a>
-        </aside>
-        
-        <!-- KONTEN UTAMA (Logo dan Daftar Game) -->
-        <main class="main-content">
-            <div class="logo-area">
-                <!-- Pastikan nama file logo sesuai dengan yang Anda unggah -->
-                <img src="logo.png" alt="MBI Game Center Logo" class="center-logo">
-                <div class="logo-text">Tempat Koleksi Kuis Pintar</div>
-            </div>
+  <div class="container">
+    <!-- LEFT PANEL -->
+    <aside class="left-panel">
+      <div class="score-item">
+        <label>Poin:</label>
+        <div id="score-value" class="score-value">0</div>
+      </div>
 
-            <h1 class="main-title">Koleksi Game Quiz Spesial</h1>
-            <p class="subtitle">Bermain Dan Belajar</p>
+      <div class="score-item">
+        <label>Koin:</label>
+        <div id="coins-value" class="score-value">0</div>
+      </div>
 
-            <div class="game-grid">
-                <!-- Game 1: Tebak MBI -->
-                <a href="#" class="game-card game-1">
-                    
-                    <div class="game-title">TEBAK MBI</div>
-                    <div class="game-version">Versi MBI</div>
-                </a>
-                
-                <!-- Game 2: Quiz Pintar -->
-                <a href="#" class="game-card game-2">
-                    
-                    <div class="game-title">QUIZ PINTAR</div>
-                    <div class="game-version">Versi MBI</div>
-                </a>
+      <button id="open-leaderboard" class="leaderboard-button">Papan peringkat</button>
+      <button id="watch-ad" class="ad-button">Tonton iklan (+50 Koin)</button>
+    </aside>
 
-                <!-- Game 3: Tebaklah Aku -->
-                <a href="#" class="game-card game-3">
-                    
-                    <div class="game-title">TEBAKLAH AKU</div>
-                    <div class="game-version">Versi MBI</div>
-                </a>
+    <!-- MAIN -->
+    <main class="main-content">
+      <div class="logo-area">
+        <!-- letakkan logo di /assets/images/logo.png -->
+        <img src="assets/images/logo.png" alt="MBI Game Center Logo" class="center-logo" />
+        <div class="logo-text">Tempat Koleksi Kuis Pintar</div>
+      </div>
 
-                <!-- Game 4: Matematika Ninja -->
-                <a href="#" class="game-card game-4">
-                    
-                    <div class="game-title">MATEMATIKA NINJA</div>
-                    <div class="game-version">Versi MBI</div>
-                </a>
+      <h1 class="main-title">Koleksi Game Quiz Spesial</h1>
+      <p class="subtitle">Bermain dan Belajar</p>
 
-                <!-- Game 5: Tebak Gambar -->
-                <a href="#" class="game-card game-5">
-                    
-                    <div class="game-title">TEBAK GAMBAR</div>
-                    <div class="game-version">Versi MBI</div>
-                </a>
+      <div class="game-grid" id="game-grid">
+        <!-- Gunakan atribut data-game untuk identifikasi game -->
+        <a href="games/tebak-mbi/index.html" class="game-card" data-game="tebak-mbi">
+          <div class="game-title">TEBAK MBI</div>
+          <div class="game-version">Versi MBI</div>
+        </a>
 
-                <!-- Game 6: Tebak Kata -->
-                <a href="#" class="game-card game-6">
-                    
-                    <div class="game-title">TEBAK KATA</div>
-                    <div class="game-version">Versi MBI</div>
-                </a>
-            </div>
+        <a href="games/quiz-pintar/index.html" class="game-card" data-game="quiz-pintar">
+          <div class="game-title">QUIZ PINTAR</div>
+          <div class="game-version">Versi MBI</div>
+        </a>
 
-            <!-- FOOTER BANNER -->
-            <div class="banner-ads">
-                Iklan banner/banner ads
-            </div>
+        <a href="games/tebaklah-aku/index.html" class="game-card" data-game="tebaklah-aku">
+          <div class="game-title">TEBAKLAH AKU</div>
+          <div class="game-version">Versi MBI</div>
+        </a>
 
-            <!-- COPYRIGHT -->
-            <footer class="copyright">
-                &copy; 2025 MBI Game Center
-            </footer>
-        </main>
-    </div>
-    
-    <!-- PENTING: Tautan ke library Tone.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
-    <!-- Tautan ke file JavaScript Anda -->
-    <script src="app.js"></script> 
+        <a href="games/matematika-ninja/index.html" class="game-card" data-game="matematika-ninja">
+          <div class="game-title">MATEMATIKA NINJA</div>
+          <div class="game-version">Versi MBI</div>
+        </a>
+
+        <a href="games/tebak-gambar/index.html" class="game-card" data-game="tebak-gambar">
+          <div class="game-title">TEBAK GAMBAR</div>
+          <div class="game-version">Versi MBI</div>
+        </a>
+
+        <a href="games/tebak-kata/index.html" class="game-card" data-game="tebak-kata">
+          <div class="game-title">TEBAK KATA</div>
+          <div class="game-version">Versi MBI</div>
+        </a>
+      </div>
+
+      <!-- BANNER & FOOTER -->
+      <div class="banner-ads">Iklan banner/banner ads</div>
+      <footer class="copyright">&copy; 2025 MBI Game Center</footer>
+    </main>
+  </div>
+
+  <!-- AUDIO LIB: Tone.js disertai fallback (opsional) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js" integrity="" crossorigin="anonymous"></script>
+
+  <!-- Script modular: audio manager, maintenance, main app -->
+  <script src="js/audioManager.js"></script>
+  <script src="js/maintenance.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    // BASIC INIT: overlay button mengaktifkan audio context & inisialisasi app
+    document.getElementById('start-audio-button').addEventListener('click', async function () {
+      // inisialisasi AudioManager (di file js/audioManager.js)
+      if (window.AudioManager && typeof window.AudioManager.init === 'function') {
+        try {
+          await window.AudioManager.init(); // jika mengembalikan promise (Tone.js resume)
+        } catch (err) {
+          console.warn('AudioManager init error', err);
+        }
+      }
+
+      // sembunyikan overlay
+      document.getElementById('audio-start-overlay').style.display = 'none';
+
+      // inisialisasi maintenance checker & app (maintenance.js dan app.js)
+      if (window.Maintenance && typeof window.Maintenance.init === 'function') {
+        window.Maintenance.init();
+      }
+      if (window.App && typeof window.App.init === 'function') {
+        window.App.init();
+      }
+    });
+
+    // Jika pengguna menutup overlay tanpa menekan, beri hint (aksesibilitas)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const overlay = document.getElementById('audio-start-overlay');
+        if (overlay && overlay.style.display !== 'none') {
+          document.getElementById('start-audio-button').click();
+        }
+      }
+    });
+  </script>
 </body>
 </html>
