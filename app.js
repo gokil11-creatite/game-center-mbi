@@ -1,199 +1,179 @@
-// Global Variables untuk Firebase (WAJIB ADA di Canvas Environment)
-// const __app_id = 'your-app-id'; 
-// const __firebase_config = '{"apiKey": "...", "authDomain": "...", ...}'; 
-// const __initial_auth_token = '...'; 
+// URL: app.js
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-import { 
-    getAuth, 
-    signInAnonymously, 
-    signInWithCustomToken, 
-    onAuthStateChanged 
-} from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-import { 
-    getFirestore, 
-    doc, 
-    setDoc, 
-    onSnapshot, 
-    getDoc 
-} from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+// Konstanta
+const COIN_REWARD_AD = 50;
 
-// Ambil variabel global
-const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
-const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+// Variabel State (Poin dan Koin)
+// Kita gunakan localStorage agar poin tidak hilang saat browser ditutup
+let userPoints = parseInt(localStorage.getItem('mbi_points')) || 0;
+let userCoins = parseInt(localStorage.getItem('mbi_coins')) || 0;
 
-let db;
-let auth;
-let userId = null;
-let userData = {
-    points: 0,
-    coins: 1000
-};
-let isAuthReady = false;
-
-// Elemen DOM
-const userPointsElement = document.getElementById('user-points');
-const userCoinsElement = document.getElementById('user-coins');
-
-// Path Firestore untuk data pribadi pengguna
-const getUserDocRef = (uid) => {
-    // Penyimpanan data private: /artifacts/{appId}/users/{userId}/data/stats
-    return doc(db, 'artifacts', appId, 'users', uid, 'data', 'stats');
-};
-
-/**
- * Inisialisasi Firebase dan Autentikasi Pengguna.
- */
-async function initializeFirebase() {
-    if (!firebaseConfig) {
-        console.error("Firebase config tidak ditemukan.");
-        return;
+// --- Fungsi untuk Memperbarui Tampilan ---
+function updateScoreDisplay() {
+    // Ambil elemen HTML yang menampilkan skor
+    const pointDisplay = document.querySelector('.score-item:nth-child(1) .score-value');
+    const coinDisplay = document.querySelector('.score-item:nth-child(2) .score-value');
+    
+    // Perbarui teks dengan nilai terbaru
+    if (pointDisplay) {
+        pointDisplay.textContent = userPoints;
     }
+    if (coinDisplay) {
+        coinDisplay.textContent = userCoins;
+    }
+}
 
-    try {
-        const app = initializeApp(firebaseConfig);
-        db = getFirestore(app);
-        auth = getAuth(app);
+// --- Fungsi Handler Tombol Tonton Iklan ---
+function handleAdWatch(event) {
+    event.preventDefault(); // Mencegah tautan (a) pindah halaman
 
-        // 1. Lakukan autentikasi
-        if (initialAuthToken) {
-            await signInWithCustomToken(auth, initialAuthToken);
-        } else {
-            // Jika token kustom tidak ada, login secara anonim
-            await signInAnonymously(auth);
-        }
+    // 1. Tambahkan Koin
+    userCoins += COIN_REWARD_AD;
+    
+    // 2. Simpan ke Local Storage
+    localStorage.setItem('mbi_coins', userCoins);
+    
+    // 3. Perbarui Tampilan
+    updateScoreDisplay();
 
-        // 2. Set listener perubahan status autentikasi
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                userId = user.uid;
-                console.log("Pengguna terautentikasi. UID:", userId);
-                isAuthReady = true;
-                setupDataListener(userId);
-            } else {
-                console.log("Pengguna belum terautentikasi.");
-                // Jika user keluar (seharusnya tidak terjadi di lingkungan Canvas), 
-                // kita bisa menggunakan ID anonim untuk penyimpanan lokal sementara.
-                userId = crypto.randomUUID(); 
-                isAuthReady = true;
-                // Tampilkan data default jika tidak terautentikasi ke Firestore
-                updateStatsDisplay();
+    // 4. Beri Feedback ke User (menggantikan alert() yang dilarang)
+    displayMessage(`Selamat! Anda mendapatkan ${COIN_REWARD_AD} Koin baru. Total Koin Anda: ${userCoins}`);
+}
+
+// --- Fungsi untuk Menampilkan Pesan Feedback (Custom Modal) ---
+function displayMessage(message) {
+    // Cek apakah modal sudah ada
+    let modal = document.getElementById('custom-modal');
+    
+    if (!modal) {
+        // Jika belum ada, buat elemen modal
+        modal = document.createElement('div');
+        modal.id = 'custom-modal';
+        modal.className = 'custom-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <p id="modal-text"></p>
+                <button class="modal-ok-button">OK</button>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        // Tambahkan event listener untuk menutup modal
+        modal.querySelector('.close-button').onclick = () => modal.style.display = 'none';
+        modal.querySelector('.modal-ok-button').onclick = () => modal.style.display = 'none';
+        
+        // Klik di luar modal juga menutupnya
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
             }
-        });
-
-    } catch (error) {
-        console.error("Gagal menginisialisasi Firebase atau Autentikasi:", error);
-    }
-}
-
-/**
- * Mengatur listener real-time untuk data Poin/Koin pengguna.
- */
-function setupDataListener(uid) {
-    const userDocRef = getUserDocRef(uid);
-
-    // Ambil data sekali, jika tidak ada, buat dokumen baru
-    getDoc(userDocRef).then(docSnapshot => {
-        if (!docSnapshot.exists()) {
-            console.log("Dokumen pengguna tidak ditemukan, membuat dokumen baru.");
-            saveUserData(userData.points, userData.coins);
         }
-    }).catch(e => console.error("Error cek dokumen:", e));
-
-
-    // Listener real-time
-    onSnapshot(userDocRef, (doc) => {
-        if (doc.exists()) {
-            const data = doc.data();
-            // Update data lokal
-            userData.points = data.points || 0;
-            userData.coins = data.coins || 1000; 
-            console.log("Data pengguna diperbarui:", userData);
-        } else {
-            console.warn("Dokumen stats pengguna tidak ditemukan setelah listener aktif.");
-        }
-        updateStatsDisplay();
-    }, (error) => {
-        console.error("Gagal mendengarkan update data Firestore:", error);
-    });
-}
-
-/**
- * Menyimpan Poin dan Koin ke Firestore.
- * @param {number} points 
- * @param {number} coins 
- */
-export async function saveUserData(points, coins) {
-    if (!isAuthReady || !db || !userId) {
-        console.warn("Firebase atau Autentikasi belum siap untuk menyimpan data.");
-        return;
-    }
-    
-    // Update data lokal terlebih dahulu
-    userData.points = points;
-    userData.coins = coins;
-    
-    const userDocRef = getUserDocRef(userId);
-    try {
-        // Menggunakan setDoc dengan merge: true agar tidak menimpa field lain jika ada
-        await setDoc(userDocRef, {
-            points: points,
-            coins: coins
-        }, { merge: true });
-        console.log("Data Poin/Koin berhasil disimpan.");
-    } catch (e) {
-        console.error("Error menyimpan data pengguna:", e);
-    }
-}
-
-/**
- * Memperbarui tampilan Poin dan Koin di UI.
- */
-function updateStatsDisplay() {
-    userPointsElement.textContent = userData.points;
-    userCoinsElement.textContent = userData.coins;
-}
-
-/**
- * Fungsi untuk tombol "Tonton Iklan (+50 Koin)"
- * Fungsi ini harus diekspor karena dipanggil dari onclick di index.html.
- */
-window.tontonIklan = async function() {
-    if (!isAuthReady || !userId) {
-        console.warn("Sistem belum siap. Coba lagi.");
-        return;
     }
 
-    const newCoins = userData.coins + 50;
-    
-    // Simpan data baru ke Firestore
-    await saveUserData(userData.points, newCoins);
-    
-    // Tampilkan pesan umpan balik (Gunakan modal UI, bukan alert())
-    showFeedbackModal("Iklan berhasil ditonton!", `Anda mendapatkan 50 Koin baru. Total Koin Anda: ${newCoins}.`);
-};
-
-/**
- * Fungsi Placeholder untuk Modal Umpan Balik (Mengganti alert())
- */
-function showFeedbackModal(title, message) {
-    // Karena kita tidak bisa membuat modal UI di sini, 
-    // kita akan menggunakan console.log dan sedikit modifikasi DOM sebagai placeholder.
-    console.log(`[MODAL] ${title}: ${message}`);
-    
-    const feedbackDiv = document.createElement('div');
-    feedbackDiv.style.cssText = `
-        position: fixed; top: 10px; right: 10px; background-color: #007bff; color: white;
-        padding: 10px 15px; border-radius: 5px; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-        animation: fadeinout 4s forwards;
-    `;
-    feedbackDiv.innerHTML = `<strong>${title}</strong><br>${message}`;
-    document.body.appendChild(feedbackDiv);
-    
-    // Hapus feedback setelah 4 detik
-    setTimeout(() => feedbackDiv.remove(), 4000);
+    // Atur pesan dan tampilkan modal
+    document.getElementById('modal-text').textContent = message;
+    modal.style.display = 'flex';
 }
 
-// Inisialisasi
-initializeFirebase();
+
+// --- Inisialisasi Aplikasi ---
+function initApp() {
+    // 1. Perbarui tampilan skor saat aplikasi dimuat
+    updateScoreDisplay();
+
+    // 2. Tambahkan Event Listener ke Tombol 'Tonton Iklan'
+    const adButton = document.querySelector('.ad-button');
+    if (adButton) {
+        adButton.addEventListener('click', handleAdWatch);
+    }
+    
+    // 3. Tambahkan styling untuk Custom Modal (karena ini file JS)
+    // Dalam proyek nyata, ini seharusnya ada di style.css
+    if (!document.getElementById('modal-styles')) {
+        const style = document.createElement('style');
+        style.id = 'modal-styles';
+        style.textContent = `
+            .custom-modal {
+                display: none; 
+                position: fixed; 
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto; 
+                background-color: rgba(0,0,0,0.7); 
+                justify-content: center;
+                align-items: center;
+            }
+            .modal-content {
+                background-color: #333;
+                margin: auto;
+                padding: 30px;
+                border: 1px solid #888;
+                width: 80%;
+                max-width: 400px;
+                border-radius: 10px;
+                text-align: center;
+                position: relative;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            }
+            .close-button {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                cursor: pointer;
+            }
+            .close-button:hover,
+            .close-button:focus {
+                color: white;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            #modal-text {
+                margin-bottom: 20px;
+                font-size: 16px;
+                color: white;
+            }
+            .modal-ok-button {
+                background-color: #ffd700;
+                color: black;
+                border: none;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+// Jalankan fungsi inisialisasi saat DOM selesai dimuat
+document.addEventListener('DOMContentLoaded', initApp);
+```
+eof
+
+### 🔗 Langkah Selanjutnya (Kaitkan dengan `index.html`)
+
+Agar `app.js` ini berjalan, Anda harus menghubungkannya ke `index.html` yang sudah Anda salin.
+
+Silakan buka file **`index.html`** Anda, dan tambahkan baris ini tepat sebelum tag penutup `</body>`:
+
+```html
+    <!-- ... konten body ... -->
+    
+    <!-- PENTING: Tautan ke file JavaScript Anda -->
+    <script src="app.js"></script> 
+</body>
+</html>
