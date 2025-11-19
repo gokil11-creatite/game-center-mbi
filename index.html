@@ -7,7 +7,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
+    <!-- AUDIO START OVERLAY (Untuk mengatasi masalah Autoplay Browser) -->
+    <div id="audio-start-overlay" class="audio-start-overlay">
+        <button id="start-audio-button" class="start-audio-button">
+            Ketuk untuk Mulai Game
+        </button>
+        <p class="audio-note">Memuat musik latar dan efek suara.</p>
+    </div>
+
     <div class="container">
+        <!-- HEADER KIRI (Poin, Koin, Papan Peringkat, Iklan) -->
         <aside class="left-panel">
             <div class="score-item">
                 <label>Poin:</label>
@@ -21,8 +31,10 @@
             <a href="#" class="ad-button">Tonton iklan (+50 Koin)</a>
         </aside>
         
+        <!-- KONTEN UTAMA (Logo dan Daftar Game) -->
         <main class="main-content">
             <div class="logo-area">
+                <!-- Pastikan nama file logo sesuai dengan yang Anda unggah -->
                 <img src="logo.png" alt="MBI Game Center Logo" class="center-logo">
                 <div class="logo-text">Tempat Koleksi Kuis Pintar</div>
             </div>
@@ -31,36 +43,42 @@
             <p class="subtitle">Bermain Dan Belajar</p>
 
             <div class="game-grid">
+                <!-- Game 1: Tebak MBI -->
                 <a href="#" class="game-card game-1">
                     
                     <div class="game-title">TEBAK MBI</div>
                     <div class="game-version">Versi MBI</div>
                 </a>
                 
+                <!-- Game 2: Quiz Pintar -->
                 <a href="#" class="game-card game-2">
                     
                     <div class="game-title">QUIZ PINTAR</div>
                     <div class="game-version">Versi MBI</div>
                 </a>
 
+                <!-- Game 3: Tebaklah Aku -->
                 <a href="#" class="game-card game-3">
                     
                     <div class="game-title">TEBAKLAH AKU</div>
                     <div class="game-version">Versi MBI</div>
                 </a>
 
+                <!-- Game 4: Matematika Ninja -->
                 <a href="#" class="game-card game-4">
                     
                     <div class="game-title">MATEMATIKA NINJA</div>
                     <div class="game-version">Versi MBI</div>
                 </a>
 
+                <!-- Game 5: Tebak Gambar -->
                 <a href="#" class="game-card game-5">
                     
                     <div class="game-title">TEBAK GAMBAR</div>
                     <div class="game-version">Versi MBI</div>
                 </a>
 
+                <!-- Game 6: Tebak Kata -->
                 <a href="#" class="game-card game-6">
                     
                     <div class="game-title">TEBAK KATA</div>
@@ -68,14 +86,21 @@
                 </a>
             </div>
 
+            <!-- FOOTER BANNER -->
             <div class="banner-ads">
                 Iklan banner/banner ads
             </div>
 
+            <!-- COPYRIGHT -->
             <footer class="copyright">
                 &copy; 2025 MBI Game Center
             </footer>
         </main>
     </div>
+    
+    <!-- PENTING: Tautan ke library Tone.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
+    <!-- Tautan ke file JavaScript Anda -->
+    <script src="app.js"></script> 
 </body>
 </html>
