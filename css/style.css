@@ -1,0 +1,279 @@
+‎:root {
+‎    --color-primary: #1e90ff; /* Biru terang */
+‎    --color-accent: #ffd700; /* Kuning/Emas untuk penekanan */
+‎    --color-text: #ffffff;
+‎    --color-card-bg: rgba(0, 0, 0, 0.4); /* Background kartu semi-transparan */
+‎}
+‎
+‎/* Reset dan Body */
+‎* {
+‎    margin: 0;
+‎    padding: 0;
+‎    box-sizing: border-box;
+‎}
+‎
+‎body {
+‎    /* GANTI background.jpg dengan nama file background Anda! */
+‎    background-image: url('background.jpg'); 
+‎    background-size: cover;
+‎    background-position: center;
+‎    background-repeat: no-repeat;
+‎    background-attachment: fixed;
+‎    font-family: Arial, sans-serif;
+‎    color: var(--color-text);
+‎    min-height: 100vh;
+‎    display: flex;
+‎    justify-content: center;
+‎    padding: 20px;
+‎    overflow-y: auto; /* Memungkinkan scroll jika konten panjang */
+‎}
+‎
+‎/* --- OVERLAY START AUDIO --- */
+‎.audio-start-overlay {
+‎    position: fixed;
+‎    top: 0;
+‎    left: 0;
+‎    width: 100%;
+‎    height: 100%;
+‎    background-color: rgba(0, 0, 0, 0.95);
+‎    z-index: 2000;
+‎    display: flex;
+‎    flex-direction: column;
+‎    justify-content: center;
+‎    align-items: center;
+‎    text-align: center;
+‎}
+‎
+‎.start-audio-button {
+‎    background-color: var(--color-primary);
+‎    color: white;
+‎    border: none;
+‎    padding: 15px 30px;
+‎    font-size: 20px;
+‎    font-weight: bold;
+‎    border-radius: 10px;
+‎    cursor: pointer;
+‎    box-shadow: 0 5px 0 0 #10528e;
+‎    transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+‎}
+‎
+‎.start-audio-button:hover {
+‎    background-color: #3b91ff;
+‎}
+‎
+‎.start-audio-button:active {
+‎    transform: translateY(3px);
+‎    box-shadow: 0 2px 0 0 #10528e;
+‎}
+‎
+‎.audio-note {
+‎    margin-top: 15px;
+‎    font-size: 14px;
+‎    color: #ccc;
+‎}
+‎
+‎/* --- TINGGALKAN KODE CSS LAINNYA DI BAWAH INI SAMA SEPERTI SEBELUMNYA --- */
+‎
+‎.container {
+‎    width: 100%;
+‎    max-width: 900px; /* Lebar maksimal konten */
+‎    display: grid;
+‎    grid-template-columns: 200px 1fr; /* Panel Kiri dan Konten Utama */
+‎    gap: 20px;
+‎}
+‎
+‎/* --- PANEL KIRI (Poin, Koin, Peringkat) --- */
+‎.left-panel {
+‎    display: flex;
+‎    flex-direction: column;
+‎    gap: 10px;
+‎}
+‎
+‎.score-item {
+‎    background-color: var(--color-text);
+‎    color: #000;
+‎    padding: 5px 10px;
+‎    border-radius: 5px;
+‎    width: 100%;
+‎}
+‎
+‎.score-item label {
+‎    font-size: 14px;
+‎    font-weight: bold;
+‎}
+‎
+‎.score-value {
+‎    font-size: 18px;
+‎    font-weight: bold;
+‎}
+‎
+‎.leaderboard-button {
+‎    background-color: var(--color-accent); /* Warna Kuning seperti di gambar */
+‎    color: #000;
+‎    text-align: center;
+‎    padding: 10px;
+‎    border-radius: 5px;
+‎    text-decoration: none;
+‎    font-weight: bold;
+‎    margin-bottom: 15px;
+‎    transition: opacity 0.2s;
+‎}
+‎
+‎.ad-button {
+‎    background-color: #3cb371; /* Warna Hijau seperti di gambar */
+‎    color: var(--color-text);
+‎    text-align: center;
+‎    padding: 8px;
+‎    border-radius: 5px;
+‎    text-decoration: none;
+‎    font-size: 14px;
+‎    transition: opacity 0.2s;
+‎}
+‎
+‎.leaderboard-button:hover, .ad-button:hover, .game-card:hover {
+‎    opacity: 0.9;
+‎}
+‎
+‎/* --- KONTEN UTAMA --- */
+‎.main-content {
+‎    display: flex;
+‎    flex-direction: column;
+‎    align-items: center;
+‎    text-align: center;
+‎}
+‎
+‎.logo-area {
+‎    margin-bottom: 20px;
+‎}
+‎
+‎/* GANTI dimensi ini agar sesuai dengan logo Anda */
+‎.center-logo {
+‎    width: 150px; 
+‎    height: 150px;
+‎    object-fit: contain;
+‎    border-radius: 50%; /* Jika logo Anda berbentuk lingkaran */
+‎    border: 5px solid var(--color-primary);
+‎    box-shadow: 0 0 15px var(--color-primary);
+‎}
+‎
+‎.logo-text {
+‎    font-size: 12px;
+‎    margin-top: 5px;
+‎    color: #ccc;
+‎}
+‎
+‎.main-title {
+‎    font-size: 28px;
+‎    margin-bottom: 5px;
+‎    text-shadow: 1px 1px 3px #000;
+‎}
+‎
+‎.subtitle {
+‎    font-size: 18px;
+‎    margin-bottom: 25px;
+‎    color: #e0e0e0;
+‎}
+‎
+‎/* --- GRID GAME --- */
+‎.game-grid {
+‎    display: grid;
+‎    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+‎    gap: 15px;
+‎    width: 100%;
+‎}
+‎
+‎.game-card {
+‎    background-color: var(--color-card-bg);
+‎    border-radius: 10px;
+‎    padding: 15px;
+‎    text-align: center;
+‎    text-decoration: none;
+‎    color: var(--color-text);
+‎    transition: transform 0.2s, box-shadow 0.2s;
+‎    display: flex;
+‎    flex-direction: column;
+‎    justify-content: center;
+‎    min-height: 120px;
+‎    /* Ganti dengan gambar ikon Anda di sini */
+‎    background-size: cover;
+‎    background-position: center;
+‎    position: relative;
+‎    overflow: hidden;
+‎}
+‎
+‎.game-card:hover {
+‎    transform: translateY(-5px);
+‎    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+‎}
+‎
+‎.game-title {
+‎    font-weight: bold;
+‎    font-size: 16px;
+‎    margin-top: auto; /* Dorong judul ke bawah */
+‎    background-color: rgba(0, 0, 0, 0.6); /* Background untuk judul agar terbaca */
+‎    padding: 5px 0;
+‎}
+‎
+‎.game-version {
+‎    font-size: 10px;
+‎    font-style: italic;
+‎}
+‎
+‎/* Contoh penempatan gambar ikon individual menggunakan CSS */
+‎/* Anda perlu mengganti url() dengan nama file ikon masing-masing game */
+‎.game-1 { background-image: url('icon-tebak-mbi.png'); }
+‎.game-2 { background-image: url('icon-kuis-pintar.png'); }
+‎.game-3 { background-image: url('icon-tebaklah-aku.png'); }
+‎.game-4 { background-image: url('icon-matematika-ninja.png'); }
+‎.game-5 { background-image: url('icon-tebak-gambar.png'); }
+‎.game-6 { background-image: url('icon-tebak-kata.png'); }
+‎
+‎
+‎/* --- BANNER ADS --- */
+‎.banner-ads {
+‎    background-color: var(--color-accent);
+‎    color: #000;
+‎    width: 100%;
+‎    padding: 15px 0;
+‎    text-align: center;
+‎    font-weight: bold;
+‎    margin-top: 30px;
+‎    border-radius: 8px;
+‎}
+‎
+‎/* --- COPYRIGHT --- */
+‎.copyright {
+‎    margin-top: 20px;
+‎    font-size: 12px;
+‎    color: #aaa;
+‎}
+‎
+‎/* Responsif (untuk layar kecil/handphone) */
+‎@media (max-width: 768px) {
+‎    .container {
+‎        grid-template-columns: 1fr; /* Kolom tunggal */
+‎        gap: 10px;
+‎    }
+‎
+‎    .left-panel {
+‎        flex-direction: row; /* Poin/Koin berjejer horizontal */
+‎        flex-wrap: wrap;
+‎        justify-content: space-around;
+‎        padding-bottom: 10px;
+‎        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+‎    }
+‎    
+‎    .score-item, .leaderboard-button, .ad-button {
+‎        width: 45%; /* Ambil sekitar setengah lebar */
+‎        margin: 5px 0;
+‎    }
+‎
+‎    .game-grid {
+‎        grid-template-columns: repeat(2, 1fr); /* 2 kolom untuk game */
+‎    }
+‎
+‎    .main-title {
+‎        font-size: 24px;
+‎    }
+‎}
+‎
