@@ -4,47 +4,47 @@
 const QUESTIONS = [
     {
         id: 1,
-        image: "tebak-mbi-vihara-dharmajaya.jpg",
-        question: "Vihara Buddhayana tertua di Indonesia, terletak di Makassar. Apa namanya?",
-        answer: ["DHARMAJAYA", "VIHARA DHARMAJAYA"],
-        hint: "Diawali huruf D, berarti kemenangan Dharma.",
+        image: "level01.jpg",
+        question: "siapakah nama saya?",
+        answer: ["alifirdaus"],
+        hint: "Diawali huruf a, berarti kemenangan alifirdaus.",
         points: 25,
         coinReward: 5
     },
     {
         id: 2,
-        image: "tebak-mbi-buddhism-day.jpg",
-        question: "Perayaan penting Buddhayana yang jatuh pada hari raya Waisak. Ini adalah Hari...?",
-        answer: ["BUDDHISM DAY", "HARI BUDDHISM DAY"],
-        hint: "Perayaan global untuk memperingati Tri Suci Waisak.",
+        image: "level02.jpg",
+        question: "siapakah nama saya?",
+        answer: ["carsim"],
+        hint: "carsim.",
         points: 20,
         coinReward: 4
     },
     {
         id: 3,
-        image: "tebak-mbi-bhikkhu-dhammasubho.jpg",
-        question: "Tokoh sentral dan pendiri Sangha Agung Indonesia (SAGIN). Siapakah nama mendiang Bhikkhu ini?",
-        answer: ["DHAMMASUBHO", "BHIKKHU DHAMMASUBHO"],
-        hint: "Nama beliau diabadikan sebagai nama yayasan di Jakarta.",
+        image: "level03.jpg",
+        question: "ketikan nama ku?",
+        answer: ["bambang"],
+        hint: "bambang.",
         points: 30,
         coinReward: 6
     },
     // Tambahkan lebih banyak pertanyaan di sini!
     {
         id: 4,
-        image: "tebak-mbi-vihara-indraloka.jpg",
-        question: "Vihara pusat di Jawa Tengah, yang juga merupakan kantor sekretariat DPD MBI Jateng. Vihara Indraloka terletak di kota...?",
-        answer: ["SEMARANG"],
-        hint: "Ibu kota Jawa Tengah.",
+        image: "level04.jpg",
+        question: "coba sebutkan namaku?",
+        answer: ["heriyana"],
+        hint: "bang buluk atau rajatebteb/heriyana.",
         points: 20,
         coinReward: 4
     },
     {
         id: 5,
-        image: "tebak-mbi-kmb-logo.jpg",
-        question: "Organisasi pemuda Buddhayana. Singkatan apa yang biasa digunakan?",
-        answer: ["KMB", "KELUARGA MAHASISWA BUDDHAYANA"],
-        hint: "Organisasi ini memiliki cabang di kampus-kampus besar.",
+        image: "level05.jpg",
+        question: "siapakah aku?",
+        answer: ["madsari"],
+        hint: "papah uky/madsari.",
         points: 20,
         coinReward: 4
     }
