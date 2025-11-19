@@ -1,130 +1,158 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MBI Game Center - Koleksi Quiz Pintar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBI Game Center - Koleksi Quiz Pintar</title>
+    
+    <!-- 1. Memuat file gaya -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Memuat library Tone.js untuk manajemen audio -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
+    
+    <!-- 2. SETUP FIREBASE DAN AUTENTIKASI (KRITIS UNTUK AKSES VARIABEL LINGKUNGAN) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, updateDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-  <!-- Ganti path CSS sesuai struktur: css/main.css -->
-  <link rel="stylesheet" href="css/main.css" />
+        // Variabel global yang disediakan oleh lingkungan
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        if (Object.keys(firebaseConfig).length > 0) {
+            // Inisialisasi layanan Firebase dan mengeksposnya ke window
+            const app = initializeApp(firebaseConfig);
+            window.db = getFirestore(app);
+            window.auth = getAuth(app);
+            window.appId = appId;
+            setLogLevel('Debug'); 
+
+            async function authenticate() {
+                try {
+                    if (initialAuthToken) {
+                        await signInWithCustomToken(window.auth, initialAuthToken);
+                    } else {
+                        await signInAnonymously(window.auth);
+                    }
+                } catch (error) {
+                    console.error("Kesalahan Autentikasi:", error);
+                }
+            }
+
+            onAuthStateChanged(window.auth, (user) => {
+                if (user) {
+                    window.userId = user.uid;
+                    window.isAuthReady = true;
+                    // Panggil fungsi inisialisasi utama dari app.js
+                    if (window.initAppLogic) {
+                        window.initAppLogic();
+                    }
+                } else {
+                    window.userId = null;
+                    window.isAuthReady = true; 
+                }
+            });
+
+            authenticate();
+        } else {
+            console.error("Konfigurasi Firebase hilang. Aplikasi tidak dapat menyimpan data.");
+            window.isAuthReady = true;
+            if (window.initAppLogic) {
+                window.initAppLogic(); // Tetap panggil untuk logika UI tanpa Firebase
+            }
+        }
+    </script>
 </head>
 <body>
-  <!-- AUDIO START OVERLAY (mengatasi autoplay) -->
-  <div id="audio-start-overlay" class="audio-start-overlay">
-    <button id="start-audio-button" class="start-audio-button">
-      Ketuk untuk Mulai Game
-    </button>
-    <p class="audio-note">Ketuk untuk memuat musik latar & efek suara.</p>
-  </div>
+    
+    <!-- AUDIO START OVERLAY -->
+    <div id="audio-start-overlay" class="audio-start-overlay">
+        <button id="start-audio-button" class="start-audio-button">
+            Ketuk untuk Mulai Game
+        </button>
+        <p class="audio-note">Memuat musik latar dan efek suara.</p>
+    </div>
 
-  <div class="container">
-    <!-- LEFT PANEL -->
-    <aside class="left-panel">
-      <div class="score-item">
-        <label>Poin:</label>
-        <div id="score-value" class="score-value">0</div>
-      </div>
+    <div class="container">
+        <!-- HEADER KIRI (Poin, Koin, Papan Peringkat, Iklan) -->
+        <aside class="left-panel">
+            <div class="score-item">
+                <label>Poin:</label>
+                <div class="score-value" id="user-points">0</div>
+            </div>
+            <div class="score-item">
+                <label>Koin:</label>
+                <div class="score-value" id="user-coins">0</div>
+            </div>
+            <a href="#" class="leaderboard-button" id="leaderboard-btn">Papan peringkat</a>
+            <a href="#" class="ad-button" id="ad-btn">Tonton iklan (+50 Koin)</a>
+        </aside>
+        
+        <!-- KONTEN UTAMA -->
+        <main class="main-content">
+            <div class="logo-area">
+                <div class="center-logo" role="img" aria-label="Logo">🧠</div>
+                <div class="logo-text">Tempat Koleksi Kuis Pintar</div>
+            </div>
 
-      <div class="score-item">
-        <label>Koin:</label>
-        <div id="coins-value" class="score-value">0</div>
-      </div>
+            <h1 class="main-title">Koleksi Game Quiz Spesial</h1>
+            <p class="subtitle">Bermain Dan Belajar</p>
 
-      <button id="open-leaderboard" class="leaderboard-button">Papan peringkat</button>
-      <button id="watch-ad" class="ad-button">Tonton iklan (+50 Koin)</button>
-    </aside>
+            <div class="game-grid">
+                <!-- Game Cards -->
+                <a href="#" class="game-card game-1" data-game="tebak-mbi">
+                    <div class="game-title">TEBAK MBI</div>
+                    <div class="game-version">Versi MBI</div>
+                </a>
+                <a href="#" class="game-card game-2" data-game="quiz-pintar">
+                    <div class="game-title">QUIZ PINTAR</div>
+                    <div class="game-version">Versi MBI</div>
+                </a>
+                <a href="#" class="game-card game-3" data-game="tebaklah-aku">
+                    <div class="game-title">TEBAKLAH AKU</div>
+                    <div class="game-version">Versi MBI</div>
+                </a>
+                <a href="#" class="game-card game-4" data-game="matematika-ninja">
+                    <div class="game-title">MATEMATIKA NINJA</div>
+                    <div class="game-version">Versi MBI</div>
+                </a>
+                <a href="#" class="game-card game-5" data-game="tebak-gambar">
+                    <div class="game-title">TEBAK GAMBAR</div>
+                    <div class="game-version">Versi MBI</div>
+                </a>
+                <a href="#" class="game-card game-6" data-game="tebak-kata">
+                    <div class="game-title">TEBAK KATA</div>
+                    <div class="game-version">Versi MBI</div>
+                </a>
+            </div>
 
-    <!-- MAIN -->
-    <main class="main-content">
-      <div class="logo-area">
-        <!-- letakkan logo di /assets/images/logo.png -->
-        <img src="assets/images/logo.png" alt="MBI Game Center Logo" class="center-logo" />
-        <div class="logo-text">Tempat Koleksi Kuis Pintar</div>
-      </div>
+            <!-- FOOTER BANNER -->
+            <div class="banner-ads">
+                Iklan banner/banner ads
+            </div>
 
-      <h1 class="main-title">Koleksi Game Quiz Spesial</h1>
-      <p class="subtitle">Bermain dan Belajar</p>
-
-      <div class="game-grid" id="game-grid">
-        <!-- Gunakan atribut data-game untuk identifikasi game -->
-        <a href="games/tebak-mbi/index.html" class="game-card" data-game="tebak-mbi">
-          <div class="game-title">TEBAK MBI</div>
-          <div class="game-version">Versi MBI</div>
-        </a>
-
-        <a href="games/quiz-pintar/index.html" class="game-card" data-game="quiz-pintar">
-          <div class="game-title">QUIZ PINTAR</div>
-          <div class="game-version">Versi MBI</div>
-        </a>
-
-        <a href="games/tebaklah-aku/index.html" class="game-card" data-game="tebaklah-aku">
-          <div class="game-title">TEBAKLAH AKU</div>
-          <div class="game-version">Versi MBI</div>
-        </a>
-
-        <a href="games/matematika-ninja/index.html" class="game-card" data-game="matematika-ninja">
-          <div class="game-title">MATEMATIKA NINJA</div>
-          <div class="game-version">Versi MBI</div>
-        </a>
-
-        <a href="games/tebak-gambar/index.html" class="game-card" data-game="tebak-gambar">
-          <div class="game-title">TEBAK GAMBAR</div>
-          <div class="game-version">Versi MBI</div>
-        </a>
-
-        <a href="games/tebak-kata/index.html" class="game-card" data-game="tebak-kata">
-          <div class="game-title">TEBAK KATA</div>
-          <div class="game-version">Versi MBI</div>
-        </a>
-      </div>
-
-      <!-- BANNER & FOOTER -->
-      <div class="banner-ads">Iklan banner/banner ads</div>
-      <footer class="copyright">&copy; 2025 MBI Game Center</footer>
-    </main>
-  </div>
-
-  <!-- AUDIO LIB: Tone.js disertai fallback (opsional) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js" integrity="" crossorigin="anonymous"></script>
-
-  <!-- Script modular: audio manager, maintenance, main app -->
-  <script src="js/audioManager.js"></script>
-  <script src="js/maintenance.js"></script>
-  <script src="js/app.js"></script>
-
-  <script>
-    // BASIC INIT: overlay button mengaktifkan audio context & inisialisasi app
-    document.getElementById('start-audio-button').addEventListener('click', async function () {
-      // inisialisasi AudioManager (di file js/audioManager.js)
-      if (window.AudioManager && typeof window.AudioManager.init === 'function') {
-        try {
-          await window.AudioManager.init(); // jika mengembalikan promise (Tone.js resume)
-        } catch (err) {
-          console.warn('AudioManager init error', err);
-        }
-      }
-
-      // sembunyikan overlay
-      document.getElementById('audio-start-overlay').style.display = 'none';
-
-      // inisialisasi maintenance checker & app (maintenance.js dan app.js)
-      if (window.Maintenance && typeof window.Maintenance.init === 'function') {
-        window.Maintenance.init();
-      }
-      if (window.App && typeof window.App.init === 'function') {
-        window.App.init();
-      }
-    });
-
-    // Jika pengguna menutup overlay tanpa menekan, beri hint (aksesibilitas)
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        const overlay = document.getElementById('audio-start-overlay');
-        if (overlay && overlay.style.display !== 'none') {
-          document.getElementById('start-audio-button').click();
-        }
-      }
-    });
-  </script>
+            <!-- COPYRIGHT -->
+            <footer class="copyright">
+                &copy; 2025 MBI Game Center
+                <div id="user-info" style="margin-top: 5px; font-size: 10px; color: #777;">ID Pengguna: Menunggu...</div>
+            </footer>
+        </main>
+    </div>
+    
+    <!-- CUSTOM MODAL HTML -->
+    <div id="custom-modal" class="custom-modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p id="modal-text"></p>
+            <button class="modal-ok-button">OK</button>
+        </div>
+    </div>
+    
+    <!-- 3. Memuat file JavaScript aplikasi utama -->
+    <script src="app.js" type="text/javascript"></script>
 </body>
 </html>
