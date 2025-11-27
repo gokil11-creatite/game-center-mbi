@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "level": 1,
+    "question": "15 + 12 = ?",
+    "options": [25, 27, 30, 32],
+    "correct_answer": 27,
+    "type": "addition"
+  },
+  {
+    "id": 2,
+    "level": 1,
+    "question": "55 - 18 = ?",
+    "options": [37, 42, 35, 40],
+    "correct_answer": 37,
+    "type": "subtraction"
+  },
+  {
+    "id": 3,
+    "level": 1,
+    "question": "8 x 7 = ?",
+    "options": [54, 56, 64, 49],
+    "correct_answer": 56,
+    "type": "multiplication"
+  },
+  {
+    "id": 4,
+    "level": 1,
+    "question": "63 / 9 = ?",
+    "options": [6, 7, 8, 9],
+    "correct_answer": 7,
+    "type": "division"
+  },
+  {
+    "id": 5,
+    "level": 1,
+    "question": "22 + 19 = ?",
+    "options": [40, 41, 39, 42],
+    "correct_answer": 41,
+    "type": "addition"
+  },
+  {
+    "id": 6,
+    "level": 2,
+    "question": "100 - (25 + 30) = ?",
+    "options": [55, 45, 50, 65],
+    "correct_answer": 45,
+    "type": "mixed"
+  },
+  {
+    "id": 7,
+    "level": 2,
+    "question": "15 x 4 - 10 = ?",
+    "options": [50, 60, 70, 40],
+    "correct_answer": 50,
+    "type": "mixed"
+  },
+  {
+    "id": 8,
+    "level": 2,
+    "question": "72 / 8 + 5 = ?",
+    "options": [13, 14, 15, 12],
+    "correct_answer": 14,
+    "type": "mixed"
+  },
+  {
+    "id": 9,
+    "level": 2,
+    "question": "Berapa hasil dari 6 kuadrat?",
+    "options": [12, 36, 66, 24],
+    "correct_answer": 36,
+    "type": "power"
+  },
+  {
+    "id": 10,
+    "level": 2,
+    "question": "300 dibagi 6, kemudian dikurangi 10?",
+    "options": [40, 50, 60, 30],
+    "correct_answer": 40,
+    "type": "word_problem"
+  },
+  {
+    "id": 11,
+    "level": 3,
+    "question": "√81 + (2 x 5) = ?",
+    "options": [19, 20, 21, 25],
+    "correct_answer": 19,
+    "type": "advanced_mixed"
+  },
+  {
+    "id": 12,
+    "level": 3,
+    "question": "Jika 3x - 7 = 11, berapakah nilai x?",
+    "options": [4, 6, 8, 5],
+    "correct_answer": 6,
+    "type": "algebra"
+  },
+  {
+    "id": 13,
+    "level": 3,
+    "question": "(20 - 8) x (4 + 6) = ?",
+    "options": [120, 100, 110, 90],
+    "correct_answer": 120,
+    "type": "mixed"
+  },
+  {
+    "id": 14,
+    "level": 3,
+    "question": "Berapa 20% dari 150?",
+    "options": [20, 30, 15, 40],
+    "correct_answer": 30,
+    "type": "percentage"
+  },
+  {
+    "id": 15,
+    "level": 3,
+    "question": "2/5 dari 50 adalah?",
+    "options": [10, 20, 25, 30],
+    "correct_answer": 20,
+    "type": "fraction"
+  },
+  {
+    "id": 16,
+    "level": 1,
+    "question": "45 + 55 = ?",
+    "options": [90, 100, 110, 95],
+    "correct_answer": 100,
+    "type": "addition"
+  },
+  {
+    "id": 17,
+    "level": 1,
+    "question": "90 - 45 = ?",
+    "options": [55, 45, 50, 40],
+    "correct_answer": 45,
+    "type": "subtraction"
+  },
+  {
+    "id": 18,
+    "level": 1,
+    "question": "11 x 11 = ?",
+    "options": [121, 111, 120, 131],
+    "correct_answer": 121,
+    "type": "multiplication"
+  },
+  {
+    "id": 19,
+    "level": 1,
+    "question": "84 / 7 = ?",
+    "options": [11, 12, 13, 14],
+    "correct_answer": 12,
+    "type": "division"
+  },
+  {
+    "id": 20,
+    "level": 2,
+    "question": "15 x 3 + 5 = ?",
+    "options": [45, 50, 55, 60],
+    "correct_answer": 50,
+    "type": "mixed"
+  },
+  {
+    "id": 21,
+    "level": 2,
+    "question": "144 / 12 - 5 = ?",
+    "options": [7, 8, 9, 6],
+    "correct_answer": 7,
+    "type": "mixed"
+  },
+  {
+    "id": 22,
+    "level": 2,
+    "question": "18 + 17 + 15 = ?",
+    "options": [45, 50, 55, 60],
+    "correct_answer": 50,
+    "type": "addition"
+  },
+  {
+    "id": 23,
+    "level": 2,
+    "question": "Hasil dari 5 pangkat 3 adalah?",
+    "options": [25, 125, 50, 100],
+    "correct_answer": 125,
+    "type": "power"
+  },
+  {
+    "id": 24,
+    "level": 3,
+    "question": "Jika 4x = 24, berapakah nilai 8x?",
+    "options": [24, 48, 32, 56],
+    "correct_answer": 48,
+    "type": "algebra"
+  },
+  {
+    "id": 25,
+    "level": 3,
+    "question": "√100 x 2.5 = ?",
+    "options": [20, 25, 30, 50],
+    "correct_answer": 25,
+    "type": "advanced_mixed"
+  }
+]
