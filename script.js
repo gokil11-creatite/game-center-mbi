@@ -110,13 +110,14 @@ async function watchRewardAd() {
 /**
  * Fungsi Navigasi: Mengarahkan pemain ke folder game yang dipilih
  */
-function navigateToGame(gameId) {
+function navigateToGame(matematika-ninja) {
     if (isSoundOn) {
         // Tambahkan kode untuk memutar sound effect klik di sini
     }
+    const repoName = "game-center-mbi";
     // Mengalihkan ke file HTML yang berada di sub-folder game/
-    window.location.href = `games/${gameId}/${gameId}.html`; 
-    console.log(`Mengalihkan ke game: ${gameId}`);
+    window.location.href = `game-center-mbi/games/matematika-ninja/matematika-ninja.html`;
+    console.log(`Mengalihkan ke game: (matematika-ninja`);
 }
 
 
@@ -139,4 +140,5 @@ document.addEventListener('DOMContentLoaded', () => {
             navigateToGame(gameId);
         });
     });
+
 });
