@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard Global - MBI Game Center</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+    
+    <style>
+        /* CSS Tambahan Khusus Leaderboard */
+        
+        /* Menggunakan style body dari style.css */
+        
+        .game-container {
+            /* Pastikan konten Leaderboard terpusat */
+            padding-top: 20px;
+        }
+
+        /* Tombol Kembali (Posisi tetap di kiri atas) */
+        .back-button {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 2em;
+            background: none;
+            border: none;
+            color: #ccc;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        /* Filter Dropdown */
+        #game-filter {
+            margin: 20px 0 15px 0;
+            padding: 10px;
+            font-size: 1em;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: 1px solid #00aaff;
+            border-radius: 5px;
+            width: 90%;
+            max-width: 350px;
+        }
+
+        /* Daftar Leaderboard */
+        #leaderboard-list {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            max-width: 450px;
+        }
+        
+        .leaderboard-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* Background transparan dengan efek bersinar */
+            background: rgba(0, 0, 0, 0.4);
+            border-bottom: 2px solid #00aaff;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            box-shadow: 0 0 5px rgba(0, 170, 255, 0.2);
+        }
+        
+        .rank {
+            /* Peringkat 1, 2, 3 dibuat menonjol */
+            font-weight: bold;
+            color: #ffaa00; 
+            width: 30px;
+            text-align: left;
+        }
+        
+        /* Warna spesifik untuk 3 besar */
+        .leaderboard-item:nth-child(1) .rank { color: gold; font-size: 1.3em; }
+        .leaderboard-item:nth-child(2) .rank { color: silver; }
+        .leaderboard-item:nth-child(3) .rank { color: #cd7f32; } /* Bronze */
+
+        .player-id {
+            flex-grow: 1; /* Memberi ruang lebih untuk nama pemain */
+            text-align: left;
+            padding-left: 15px;
+        }
+
+        .score-value {
+            font-weight: bold;
+            color: #33cc33; /* Warna hijau untuk skor */
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="game-container">
+
+        <button class="back-button" onclick="window.location.href='index.html'">
+            &#9664;
+        </button>
+        
+        <h1 class="hologram-text" style="font-size: 2em; margin: 20px 0;">LEADERBOARD GLOBAL</h1>
+        
+        <select id="game-filter">
+            <option value="matematika-ninja">Matematika Ninja</option>
+            <option value="kuis-pintar">Kuis Pintar (Rebutan)</option>
+            <option value="tebak-gambar">Tebak Gambar MBI</option>
+        </select>
+        
+        <ol id="leaderboard-list">
+            <li>Memuat Peringkat...</li>
+        </ol>
+    </div>
+
+    <script type="module" src="leaderboard.js"></script>
+</body>
+</html>

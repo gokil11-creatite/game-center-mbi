@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBI Game Center</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    
+    <div class="game-container">
+
+        <header class="game-header">
+            
+            <div class="logo-container">
+                <img src="assets/images/logo.png" alt="MBI Game Center Logo" class="main-logo">
+                
+                <h1 class="hologram-text">MBI Game Center</h1>
+            </div>
+
+            <section class="welcome-section">
+                <p>Bermain dan belajar versi MBI</p>
+                <p>Uji pengetahuan dan berhitung mu disini</p>
+            </section>
+            
+            <div class="stats-bar-row">
+                <div class="stats-bar">
+                    <div class="stat-item coin">Koin: <span id="coin-count">0</span></div>
+                    <div class="stat-item point">Poin: <span id="point-count">0</span></div>
+                </div>
+
+                <div class="utility-buttons">
+                    <button id="ad-reward-btn">Tonton Iklan (Dapatkan Koin)</button>
+                    <button id="leaderboard-btn" onclick="window.location.href='leaderboard.html'">Leaderboard</button>
+                    <button id="sound-toggle-btn"></button>
+                </div>
+            </div>
+            
+        </header>
+
+        <main class="game-list">
+            <h2>Pilih Game</h2>
+            
+            <div class="card-container">
+                <div class="game-card" id="card-matematika-ninja">
+                    <img src="assets/images/icon-mat-ninja.png" alt="Matematika Ninja Icon"> 
+                    <p>MATEMATIKA NINJA</p>
+                </div>
+                
+                <div class="game-card" id="card-kuis-pintar">
+                    <img src="assets/images/icon-kuis-pintar.png" alt="Kuis Pintar Icon">
+                    <p>KUIS PINTAR</p>
+                </div>
+                
+                <div class="game-card" id="card-tebak-gambar">
+                    <img src="assets/images/icon-tebak-gambar.png" alt="Tebak Gambar Icon">
+                    <p>TEBAK GAMBAR MBI</p>
+                </div>
+
+                </div>
+        </main>
+
+        <footer class="game-footer">
+            <div class="ad-banner-placeholder">
+                [Ruang Iklan Banner AdMob]
+            </div>
+
+            <p class="copyright">©2025-2026 MBI Game Center.</p>
+        </footer>
+        
+    </div> <script type="module" src="script.js"></script> 
+</body>
+</html>

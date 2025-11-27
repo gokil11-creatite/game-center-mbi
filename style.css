@@ -1,0 +1,195 @@
+/* --- 1. RESET DAN BACKGROUND UTAMA --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: #f0f0f0; /* Warna teks dasar putih keabu-abuan */
+    
+    /* GANTI 'assets/images/background.jpg' DENGAN LOKASI FILE BACKGROUND BIRU BERSINAR ANDA */
+    background-image: url('assets/images/background.jpg'); 
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* CONTAINER UTAMA (Meniru batas layar HP) */
+.game-container {
+    width: 100%;
+    max-width: 450px; /* Lebar maksimal HP (Portrait Mode) */
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- 2. HEADER DAN LOGO --- */
+.game-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    padding: 5px 0 15px 0;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.main-logo {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    border: 4px solid #00c3ff; /* Garis tepi biru muda bersinar */
+    box-shadow: 0 0 15px rgba(0, 195, 255, 0.7);
+}
+
+/* Efek Hologram Text */
+.hologram-text {
+    font-size: 1.6em;
+    color: #fff;
+    text-shadow: 0 0 7px #00aaff, 0 0 15px #00aaff;
+    margin: 5px 0 10px 0;
+    font-weight: bold;
+}
+
+/* --- 3. STATS BAR DAN UTILITY BUTTONS --- */
+.stats-bar-row {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    padding: 8px;
+    margin-top: 10px;
+    box-shadow: 0 0 8px rgba(0, 195, 255, 0.3);
+}
+
+.stats-bar, .utility-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.stat-item {
+    background: #0077cc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.utility-buttons button {
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8em;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+#ad-reward-btn {
+    background: #ff5500; /* Tombol Tonton Iklan (Oranye/Merah) */
+}
+
+#leaderboard-btn {
+    background: #33cc33; /* Tombol Leaderboard (Hijau) */
+}
+#sound-toggle-btn {
+    background: #555;
+    padding: 6px 8px; /* Lebih kecil */
+}
+
+/* --- 4. SLOGAN --- */
+.welcome-section {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+.welcome-section p {
+    margin: 3px 0;
+    font-size: 0.9em;
+    color: #cccccc;
+}
+
+/* --- 5. AREA GAME CARDS --- */
+.game-list {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.game-list h2 {
+    color: #ffaa00; /* Judul 'Pilih Game' berwarna oranye */
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 15px; 
+}
+
+.game-card {
+    background: rgba(0, 0, 0, 0.7);
+    border: 3px solid #00c3ff;
+    border-radius: 12px;
+    padding: 10px;
+    width: 100px; 
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00c3ff;
+}
+
+.game-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+.game-card p {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+}
+
+/* --- 6. FOOTER DAN IKLAN --- */
+.game-footer {
+    width: 100%;
+    margin-top: auto; 
+    padding: 10px 0;
+    text-align: center;
+}
+
+.ad-banner-placeholder {
+    height: 50px; 
+    width: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 50px;
+    margin: 10px 0;
+    font-size: 0.8em;
+}
+
+.copyright {
+    font-size: 0.65em;
+    color: rgba(255, 255, 255, 0.6);
+    padding-bottom: 5px;
+}
