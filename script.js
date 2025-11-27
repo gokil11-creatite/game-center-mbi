@@ -120,7 +120,7 @@ function navigateToGame(gameId) {
     
     // Garis miring (/) di awal WAJIB untuk GitHub Pages
     // Menggunakan REPO_NAME yang sudah ditetapkan di atas
-    window.location.href = `/${game-center-mbi}/games/${matematika-ninja}/matematika.html`; 
+    window.location.href = `/${game-center-mbi}/games/${matematika-ninja}/${matematika-ninja}.html`; 
     
     console.log(`Mengalihkan ke game: ${matematika-ninja}`);
 }
@@ -146,3 +146,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
