@@ -1,0 +1,135 @@
+/* --- 1. RESET DAN TEMA UTAMA (NINJA MODE) --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    
+    /* Tema Gelap dan Enerjik */
+    background-color: #1a1a2e; /* Biru sangat gelap / Indigo */
+    background-image: linear-gradient(135deg, #1a1a2e 0%, #0f0c29 100%);
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* --- 2. WADAH GAME (Agar Tampilan Terpusat di HP) --- */
+.game-container {
+    width: 100%;
+    max-width: 450px; /* Batas lebar HP */
+}
+
+/* --- 3. HEADER GAME (Waktu & Skor) --- */
+.game-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat {
+    /* Style Panel Stats */
+    background: linear-gradient(45deg, #0077cc, #00aaff); /* Gradien Biru Cerah */
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.2em;
+    box-shadow: 0 4px 10px rgba(0, 119, 204, 0.5);
+    min-width: 120px;
+}
+
+#timer-display {
+    color: #ffaa00; /* Warna Waktu Oranye */
+}
+
+/* Tombol Kembali (di kiri atas) */
+.back-button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.back-button:hover {
+    color: #ffaa00;
+}
+
+
+/* --- 4. AREA UTAMA SOAL --- */
+#question-area {
+    background: rgba(255, 255, 255, 0.08); 
+    border: 1px solid rgba(0, 170, 255, 0.5);
+    padding: 30px 20px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    margin-top: 50px;
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.3);
+}
+
+#question-text {
+    font-size: 1.8em;
+    font-weight: 900; 
+    color: #ffaa00; /* Oranye Terang */
+    margin-bottom: 30px;
+    text-shadow: 0 0 5px rgba(255, 170, 0, 0.5);
+}
+
+/* --- 5. OPSI JAWABAN (Grid) --- */
+#options-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px;
+}
+
+.option-btn {
+    background: linear-gradient(135deg, #33cc33, #009933); /* Gradien Hijau Ninja */
+    color: white;
+    border: 3px solid #66ff66;
+    padding: 18px 10px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    box-shadow: 0 5px 0 #007722; /* Efek 3D */
+}
+
+/* Efek Klik */
+.option-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #007722;
+}
+
+/* --- 6. TOMBOL MULAI --- */
+#start-button {
+    background: linear-gradient(135deg, #ff5500, #cc4400); /* Gradien Merah-Oranye */
+    color: white;
+    border: 3px solid #ffaa00;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    max-width: 250px;
+    margin-top: 30px;
+    box-shadow: 0 5px 0 #993300;
+}
+
+#start-button:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #993300;
+}
