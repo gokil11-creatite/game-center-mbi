@@ -11,7 +11,6 @@ let userCoins = 0;
 let isSoundOn = true;
 const PLAYER_ID = "MBI_TestUser_1"; // ID Pemain sementara (Ganti dengan Auth/Login nanti)
 const userDocRef = doc(db, "users", PLAYER_ID); // Referensi ke dokumen pemain di Firestore
-const REPO_NAME = "game-center-mbi"; // NAMA REPOSITORI ANDA untuk navigasi GitHub Pages
 
 // Elemen DOM akan di-set pada DOMContentLoaded agar tidak null
 let coinCountElement = null;
@@ -108,7 +107,7 @@ async function watchRewardAd() {
 
 /**
  * Fungsi Navigasi: Mengarahkan pemain ke folder game yang dipilih
- * Menggunakan jalur absolut repositori untuk menghindari 404.
+ * Menggunakan jalur relatif agar bekerja pada lokal dan GitHub Pages.
  */
 function navigateToGame(gameId) {
     if (!gameId) return;
@@ -116,12 +115,11 @@ function navigateToGame(gameId) {
         // Tambahkan kode untuk memutar sound effect klik di sini
     }
 
-    // Pastikan REPO_NAME dan gameId dipakai dengan benar
-    // Garis miring (/) di awal WAJIB untuk GitHub Pages proyek yang di-publish ke username.github.io/<repo>
-    const targetPath = `/${REPO_NAME}/games/${encodeURIComponent(gameId)}/${encodeURIComponent(gameId)}.html`;
+    const safeId = encodeURIComponent(gameId);
+    const targetPath = `./game/${safeId}/${safeId}.html`;
     window.location.href = targetPath;
 
-    console.log(`Mengalihkan ke game: ${gameId}`);
+    console.log(`Mengalihkan ke game: ${gameId} -> ${targetPath}`);
 }
 
 // --- 6. EKSEKUSI (Saat Halaman Dimuat) ---
@@ -146,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (gameCards && gameCards.length > 0) {
         gameCards.forEach(card => {
             card.addEventListener('click', () => {
-                // Mengambil ID Game dari ID Card (misal: 'card-matematika-ninja' menjadi 'matematika-ninja')
                 const gameId = card.id ? card.id.replace('card-', '') : '';
                 navigateToGame(gameId);
             });

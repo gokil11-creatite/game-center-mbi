@@ -1,34 +1,28 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matematika Ninja - MBI Game Center</title>
-    
-    <link rel="stylesheet" href="style.css"> 
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Matematika Ninja - MBI</title>
+    <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-    
     <div class="game-container">
-    
-        <button class="back-button" onclick="window.location.href='../../index.html'">
-            &#9664;
-        </button>
-    
+        <button class="back-button" onclick="window.location.href='../../index.html'">&#9664;</button>
+
         <header class="game-header">
-            <div class="stat">Waktu: <span id="timer-display">30</span>s</div>
-            <div class="stat">Skor: <span id="score-display">0</span></div>
+            <h1 class="hologram-text">Matematika Ninja</h1>
+            <div id="timer-display" class="stat">30</div>
+            <div id="score-display" class="stat">0</div>
         </header>
-    
+
         <main id="question-area">
-            <p id="question-text">Memuat Soal...</p>
-            
-            <div id="options-container">
-                </div>
-            
-            <button id="start-button">Mulai Turnamen Ninja!</button>
+            <div id="question-text">Memuat soal...</div>
+            <div id="options-container"></div>
+            <button id="start-button" style="display:none;">START</button>
         </main>
-        
-    </div> <script type="module" src="script.js"></script> 
+    </div>
+
+    <script type="module" src="./script.js"></script>
 </body>
 </html>
