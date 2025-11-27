@@ -1,7 +1,7 @@
 // --- 1. IMPOR FIREBASE DAN KONFIGURASI ---
 
 // Impor koneksi database dan fungsi Firestore yang diperlukan
-// Pastikan path ke firebase_config.js sudah benar.
+// Pastikan path ke firebase_config.js sudah benar (./server/firebase_config.js)
 import { db } from './server/firebase_config.js'; 
 import { doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
@@ -13,6 +13,7 @@ let userCoins = 0;
 let isSoundOn = true; 
 const PLAYER_ID = "MBI_TestUser_1"; // ID Pemain sementara (Ganti dengan Auth/Login nanti)
 const userDocRef = doc(db, "users", PLAYER_ID); // Referensi ke dokumen pemain di Firestore
+const REPO_NAME = "game-center-mbi"; // NAMA REPOSITORI ANDA untuk navigasi GitHub Pages
 
 // Elemen HTML
 const coinCountElement = document.getElementById('coin-count');
@@ -79,7 +80,8 @@ async function updateUserData(newPoints, newCoins) {
  */
 function toggleSound() {
     isSoundOn = !isSoundOn; 
-    soundToggleButton.textContent = isSoundOn ? '' : '';
+    // Menggunakan ikon Unicode yang lebih stabil
+    soundToggleButton.textContent = isSoundOn ? '🔊' : '🔇';
     console.log('Sound:', isSoundOn ? 'ON' : 'OFF');
     // Logika memutar/menghentikan musik latar diletakkan di sini
 }
@@ -105,19 +107,22 @@ async function watchRewardAd() {
 }
 
 
-// --- 5. LOGIKA NAVIGASI GAME CARD ---
+// --- 5. LOGIKA NAVIGASI GAME CARD (FINAL FIX UNTUK GITHUB PAGES) ---
 
 /**
  * Fungsi Navigasi: Mengarahkan pemain ke folder game yang dipilih
+ * Menggunakan jalur absolut repositori untuk menghindari 404.
  */
-function navigateToGame(matematika-ninja) {
+function navigateToGame(gameId) {
     if (isSoundOn) {
         // Tambahkan kode untuk memutar sound effect klik di sini
     }
-    const repoName = "game-center-mbi";
-    // Mengalihkan ke file HTML yang berada di sub-folder game/
-    window.location.href = `game-center-mbi/games/matematika-ninja/matematika-ninja.html`;
-    console.log(`Mengalihkan ke game: (matematika-ninja`);
+    
+    // Garis miring (/) di awal WAJIB untuk GitHub Pages
+    // Menggunakan REPO_NAME yang sudah ditetapkan di atas
+    window.location.href = `/${game-center-mbi}/games/${matematika-ninja}/matematika.html`; 
+    
+    console.log(`Mengalihkan ke game: ${matematika-ninja}`);
 }
 
 
@@ -140,5 +145,4 @@ document.addEventListener('DOMContentLoaded', () => {
             navigateToGame(gameId);
         });
     });
-
 });
